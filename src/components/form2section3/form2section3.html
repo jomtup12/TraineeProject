@@ -1,0 +1,248 @@
+<!-- Generated template for the Form2section3Component component -->
+<ion-title>
+  ตอนที่ 3 การผลิตสินค้า
+</ion-title>
+<hr id="hr-line">
+
+<ion-list no-lines id="container">
+
+  <form [formGroup]="Form2Section3">
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">3.1</label> ชื่อสถานประกอบการ/หน่วยงาน</ion-label>
+      <ion-input [(ngModel)]="section3.A3_1" formControlName="A3_1" type="text" placeholder="่ชื่อสถานประกอบการ/หน่วยงาน" (ionChange)="validate()"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section3.controls.A3_1.valid &&  section3.A3_1)||(!section3.A3_1 &&  notValid)" danger padding-left>กรุณากรอกข้อมูล ชื่อสถานประกอบการ/หน่วยงาน</p>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">
+            <label id="bold">3.2</label> โทรศัพท์</ion-label>
+          <ion-input [(ngModel)]="section3.A3_2_1" formControlName="A3_2_1" type="text" placeholder="โทรศัพท์"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section3.controls.A3_2_1.valid &&  section3.A3_2_1)" danger padding-left>กรุณากรอกข้อมูล โทรศัพท์</p>
+        <p id="error2" *ngIf="(!section3.A3_2_1 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">โทรสาร
+          </ion-label>
+          <ion-input [(ngModel)]="section3.A3_2_2" formControlName="A3_2_2" type="text" placeholder="โทรสาร"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section3.controls.A3_2_2.valid &&  section3.A3_2_2)" danger padding-left>กรุณากรอกข้อมูล โทรสาร</p>
+        <p id="error2" *ngIf="(!section3.A3_2_2 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">E-mail</ion-label>
+          <ion-input [(ngModel)]="section3.A3_2_3" formControlName="A3_2_3" type="email" placeholder="E-mail"></ion-input>
+        </ion-item>
+         <p id="error2" *ngIf="(!Form2Section3.controls.A3_2_3.valid &&  section3.A3_2_3)" danger padding-left>กรุณากรอกข้อมูล E-mail</p>
+         <p id="error2" *ngIf="(!section3.A3_2_3 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>  
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">Website</ion-label>
+          <ion-input [(ngModel)]="section3.A3_2_4" formControlName="A3_2_4" type="text" placeholder="Website"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section3.controls.A3_2_4.valid &&  section3.A3_2_4)" danger padding-left>กรุณากรอกข้อมูล Website</p>
+        <p id="error2" *ngIf="(!section3.A3_2_4 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">3.3</label> ชื่อผู้ให้ข้อมูล
+      </ion-label>
+      <!-- <ion-input [(ngModel)]="section3.A3_3_1" formControlName="A3_3_1" type="text" placeholder="ชื่อผู้ให้ข้อมูล"></ion-input> -->
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          
+          <ion-select [(ngModel)]="titleName"  formControlName="T" (ionChange)="nameInput()" placeholder="คำนำหน้า" style="max-width: 100% !important;" interface="action-sheet" cancelText="ยกเลิก">
+            <ion-option value="นาย">นาย</ion-option>
+            <ion-option value="นาง">นาง</ion-option>
+            <ion-option value="นางสาว">นางสาว</ion-option>
+          </ion-select>
+          
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-input [(ngModel)]="FirstName" formControlName="F" (ionChange)="nameInput()" type="text" placeholder="ชื่อ"></ion-input></ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item><ion-input [(ngModel)]="LastName" formControlName="L" (ionChange)="nameInput()" type="text" placeholder="นามสกุล"></ion-input></ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p id="error2" *ngIf="(section3.A3_3_1 && !Form2Section3.controls.A3_3_1.valid)||(!FirstName && notValid)||(!LastName && notValid)||(!titleName && notValid)" danger padding-left>กรุณากรอกข้อมูล ชื่อหัวหน้าครัวเรือน ให้ถูกต้อง </p>
+    <ion-item>
+      <ion-label stacked id="fontsize">ตำแหน่ง</ion-label>
+      <ion-input [(ngModel)]="section3.A3_3_2" formControlName="A3_3_2" type="text" placeholder="ตำแหน่ง"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section3.controls.A3_3_2.valid &&  section3.A3_3_2)||(!section3.A3_3_2 &&  notValid)" danger padding-left>กรุณากรอกข้อมูล ตำแหน่ง</p>
+    <ion-row>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label text-wrap stacked id="fontsize">
+              <label id="bold">3.4</label> ประเภทสถานประกอบการผลิต
+            </ion-label></ion-item>
+      </ion-col>
+      <ion-col>
+          <ion-row>
+              <ion-col col-3>
+                  <ion-label>
+                      {{section3.A3_5}}
+                  </ion-label>  
+              </ion-col>
+              <ion-col col-9>
+                <ion-select [(ngModel)]="selected_org" (ionChange)="selectOrgChange()" formControlName="A3_5" placeholder="กรุณาเลือก" style="max-width: 100% !important;" interface="action-sheet" cancelText="ยกเลิก">
+                  <ion-option [value]="new_data[item]" *ngFor="let item of range(0,new_data.length-1)">{{ new_data[item] }}</ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+      </ion-col>
+    </ion-row>
+    <p id="error2" *ngIf="!section3.A3_5 &&  notValid" danger padding-left>กรุณากรอกข้อมูล สถานประกอบการแห่งนี้ผลิตสินค้าประเภทใด</p>
+    <ion-item>
+      <ion-label stacked id="fontsize" text-wrap>
+        <label id="bold">3.5</label> สถานประกอบการแห่งนี้ผลิตสินค้าประเภทใด (ระบุสินค้าหลักที่ผลิต)</ion-label>
+      <ion-input [(ngModel)]="section3.A3_4" formControlName="A3_4" type="String" placeholder="สถานประกอบการแห่งนี้ผลิตสินค้าประเภทใด"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section3.controls.A3_4.valid &&  section3.A3_4)||(!section3.A3_4 &&  notValid)" danger padding-left>กรุณากรอกข้อมูล สถานประกอบการแห่งนี้ผลิตสินค้าประเภทใด</p>
+    
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">3.6</label>สถานประกอบการแห่งนี้มีคนทำงานรวมทั้งหมดกี่คน</ion-label>
+      <ion-input [(ngModel)]="section3.A3_6" formControlName="A3_6" type="number" placeholder="กี่คน"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section3.controls.A3_6.valid &&  section3.A3_6)||(!section3.A3_6 &&  notValid)" danger padding-left>กรุณากรอกข้อมูล จำนวนคนทำงานรวมทั้งหมดในสถานประกอบการแห่งนี้</p>
+    <ion-item>
+      <ion-label stacked id="fontsize" text-wrap>
+        <label id="bold">3.7 </label>สถานประกอบการแห่งนี้
+        <label id="bold">ใช้เครื่องจักรที่มีขนาดตั้งแต่ 5 แรงม้าหรือ</label> 3,725 วัตต์ขึ้นไปหรือไม่</ion-label>
+    </ion-item>
+    <ion-row radio-group [(ngModel)]="section3.A3_7" formControlName="A3_7" (ionChange)="waterChange()">
+      <ion-col>
+        <ion-item>
+          <ion-radio item-left [value]=true></ion-radio>
+          <ion-label>ใช้</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-radio item-left [value]=false></ion-radio>
+          <ion-label>ไม่ใช้</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <p id="error2" *ngIf="(!Form2Section3.controls.A3_9.valid &&  notValid)" danger padding-left>กรุณากรอกข้อมูล สถานประกอบการแห่งนี้ใช้เครื่องจักรที่มีขนาดตั้งแต่ 5 แรงม้าหรือ 3,725 วัตต์ขึ้นไปหรือไม่</p>
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">3.8</label> สถานประกอบการแห่งนี้ใช้น้้าจากแหล่งใดบ้าง</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>1. น้ำประปา</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_1" formControlName="A3_8_1" (ionChange)="tapWaterChange();validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>2. น้ำบาดาล</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_2" formControlName="A3_8_2" (ionChange)="groundWaterChange();validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>3. น้ำจากแม่น้ำ/ลำคอง/แหล่งน้ำสาธารณะ</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_3" formControlName="A3_8_3" (ionChange)="riverWaterChange();validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>4. น้ำจากสระน้ำ</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_4" formControlName="A3_8_4" (ionChange)="poolWaterChange();validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>5. น้ำจากชลประทาน</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_5" formControlName="A3_8_5" (ionChange)="chonWaterChange();validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>6. น้ำฝนที่กักเก็บไว้</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_6" formControlName="A3_8_6" (ionChange)="rainWaterChange(); validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>7. น้ำที่ซื้อมาใช้</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_7" formControlName="A3_8_7" (ionChange)="buyWaterChange(); validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>8. อื่นๆ</ion-label>
+      <ion-checkbox [(ngModel)]="section3.A3_8_8" formControlName="A3_8_8" (ionChange)="validateP38()"></ion-checkbox>
+    </ion-item>
+    <ion-item *ngIf="section3.A3_8_8">
+      <ion-label stacked>โปรดระบุ</ion-label>
+      <ion-input [(ngModel)]="section3.A3_8_8_1" formControlName="A3_8_8_1" (ionChange)="validateP38()"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="!validate_3_8 &&  notValid" danger padding-left>กรุณากรอกข้อมูล สถานประกอบการแห่งนี้ใช้น้้าจากแหล่งใดบ้าง</p>
+    <p id="error2" *ngIf="!Form2Section3.controls.A3_8_8_1.valid &&  notValid" danger padding-left>กรุณาระบุ อื่น ๆ</p>
+    <ion-item>
+      <ion-label stacked id="fontsize" text-wrap>
+        <label id="bold">3.9 ในรอบ 12 เดือนที่ผ่านมา</label>สถานประกอบการนี้
+        <label id="bold">มีน้ำเสีย</label>จากกระบวนการผลิตสินค้าหรือไม่</ion-label>
+    </ion-item>
+    <ion-row radio-group [(ngModel)]="section3.A3_9" formControlName="A3_9" (ionChange)="ionChangeA39();waterChange()">
+      <ion-col>
+        <ion-item>
+          <ion-radio item-left [value]=true></ion-radio>
+          <ion-label>มี</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-radio item-left [value]=false></ion-radio>
+          <ion-label>ไม่มี</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <p id="error2" *ngIf="(!Form2Section3.controls.A3_9.valid &&  section3.A3_9 !=null)||(section3.A3_9 ==null &&  notValid)" danger padding-left>กรุณากรอกข้อมูล ในรอบ 12 เดือนที่ผ่านมา สถานประกอบการนี้มีน้ำเสียจากกระบวนการผลิตสินค้า หรือไม่</p>
+    <div *ngIf="isVisible">
+      <ion-item>
+        <ion-label stacked id="fontsize" text-wrap>
+          <label id="bold">3.10</label> ถ้า "มี" น้ำเสียสถานประกอบการนี้มี
+          <label id="bold">การจัดการน้ำเสีย</label>ที่เกิดจากกระบวนการผลิตสินค้าหรือไม่</ion-label>
+      </ion-item>
+      <ion-row radio-group [(ngModel)]="section3.A3_10" formControlName="A3_10">
+        <ion-col>
+          <ion-item>
+            <ion-radio item-left [value]=true></ion-radio>
+            <ion-label>มี</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-radio item-left [value]=false></ion-radio>
+            <ion-label>ไม่มี</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <p id="error2" *ngIf="(!Form2Section3.controls.A3_10.valid &&  section3.A3_10!=null)||(section3.A3_10==null &&  notValid)" danger padding-left>กรุณากรอกข้อมูล ในรอบ 12 เดือนที่ผ่านมา สถานประกอบการนี้มีน้ำเสียจากกระบวนการผลิตสินค้า หรือไม่</p>
+    </div>
+    <ion-item>
+      <ion-label stacked id="fontsize" text-wrap>
+        <label id="bold">3.11 ในรอบ 12 เดือนที่ผ่านมา</label> สถานประกอบการนี้มีการนำ
+        <label id="bold">น้ำที่ผ่านกระบวนการผลิตสินค้าแล้วกลับมาใช้ใหม่</label>หรือไม่</ion-label>
+    </ion-item>
+    <ion-row radio-group [(ngModel)]="section3.A3_11" formControlName="A3_11">
+      <ion-col>
+        <ion-item>
+          <ion-radio item-left [value]=true></ion-radio>
+          <ion-label>มี</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-radio item-left [value]=false></ion-radio>
+          <ion-label>ไม่มี</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <p id="error2" *ngIf="!Form2Section3.controls.A3_11.valid &&  notValid" danger padding-left>กรุณากรอกข้อมูล ในรอบ 12 เดือนที่ผ่านมา สถานประกอบการนี้มีน้ำเสียจากกระบวนการผลิตสินค้า หรือไม่</p>
+    <button ion-button (click)="save()">ถัดไป</button>
+  </form>
+</ion-list>

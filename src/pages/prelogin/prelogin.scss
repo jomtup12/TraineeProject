@@ -1,0 +1,19 @@
+.container-center {
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.title {
+    font-size: 30px;
+}
+
+.button-full-size {
+    font-size: 1.5em;
+    min-width: 20em;
+    margin: 10px;
+    border-color: #ccc;
+}

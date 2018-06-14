@@ -1,0 +1,59 @@
+secondform {
+    p {
+        font-size: 0.8em;   
+    }
+
+    .swiper-slide {
+        display: block;
+    }
+
+    ion-label, .select-text {
+        margin-left: 10px;
+    }
+
+    ion-input, ion-select, ion-textarea {
+        background-color: #f2f2f2;
+        padding: 5px 10px;
+    }
+
+    .invalid {
+        border: 1px solid #ea6153;
+    }
+    #container{
+        display: block;
+        width: 95%;
+        padding-left: 5px;
+        top: 10%;
+        text-align: left;
+    }
+    
+}
+.alert-radio-label {
+    white-space: normal!important;
+}
+#thick-header{
+    background: #d0d3d3;
+    text-align: center;
+    padding: 0; margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#thick-border{
+    background: #f2f2f2;
+    text-align: center;
+    padding: 0; margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.thick-font{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+
+
+

@@ -1,0 +1,137 @@
+firstform {
+    p {
+        font-size: 10 em;
+        // font-size: 0.8em;        
+    }
+    .theroot {
+        height: 600px;
+        overflow-y: visible !important;
+        background-color: 0x000000
+      }
+    .swiper-slide {
+        display: block;
+    }
+
+    ion-label, .select-text {
+        // margin-left: 10px;
+        margin-left: 30px;
+    }
+
+    ion-input, ion-select, ion-textarea {
+        background-color: #f2f2f2;
+        padding: 5px 10px;
+    }
+
+    .invalid {
+        border: 1px solid #ff1900;
+    }
+    #container{
+        display: block;
+        width: 95%;
+        padding-left: 5px;
+        top: 10%;
+        text-align: left;
+    }
+    .testclass{
+        font-size: 30px;
+        }
+}
+.alert-radio-label {
+    white-space: normal!important;
+}
+#thick-header{
+    background: #d0d3d3;
+    text-align: center;
+    padding: 0; margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#thick-border{
+    background: #f2f2f2;
+    text-align: center;
+    padding: 0; margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fontsize {
+    font-size: 1.2em!important;
+    //font-weight: bold;
+    color: black;
+}
+.action-sheet-md {
+    text-align: center;
+  }
+  
+  .action-sheet-md .action-sheet-wrapper {
+    margin: constant(safe-area-inset-top) auto constant(safe-area-inset-bottom);
+    margin: env(safe-area-inset-top) auto env(safe-area-inset-bottom);
+  }
+  
+  .action-sheet-md .action-sheet-container {
+    padding: 10% 10px;
+    padding-bottom: 35%;
+  }
+  
+  .action-sheet-md .action-sheet-group {
+    border-radius: 13px;
+    margin-bottom: 8px;
+    background: #f9f9f9;
+  }
+  
+  .action-sheet-md .action-sheet-group:first-child {
+    margin-top: 10px;
+  }
+  
+  .action-sheet-md .action-sheet-group:last-child {
+    margin-bottom: 10px;
+  }
+  
+  .action-sheet-md .action-sheet-title {
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 0;
+    border-bottom: 0.55px solid #d6d6da;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #8f8f8f;
+  }
+  
+  .action-sheet-md .action-sheet-button {
+    margin: 0;
+    padding: 18px;
+    min-height: 5.6rem;
+    border-bottom: 0.55px solid #d6d6da;
+    font-size: 2rem;
+    color: black;
+    background: transparent;
+  }
+  
+  .action-sheet-md .action-sheet-button:last-child {
+    border-bottom-color: transparent;
+  }
+  
+  .action-sheet-md .action-sheet-button.activated {
+    margin-top: -0.55px;
+    border-top: 0.55px solid #ebebeb;
+    border-bottom-color: #ebebeb;
+    background: #ebebeb;
+  }
+  
+  .action-sheet-md .action-sheet-selected {
+    font-weight: bold;
+    background: #fff;
+    
+  }
+  
+  .action-sheet-md .action-sheet-destructive {
+    color: #f53d3d;
+  }
+  
+  .action-sheet-md .action-sheet-cancel {
+    font-weight: 600;
+    color: #f53d3d;
+    background: #fff;
+  }

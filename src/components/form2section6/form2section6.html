@@ -1,0 +1,186 @@
+<!-- Generated template for the Form2Section6Component component -->
+<ion-title>
+    ตอนที่ 6 ปัญหาอุทุกภัย
+</ion-title>
+<hr id="hr-line">
+
+<ion-list no-lines id="container">
+    <ion-item  text-wrap no-lines id="fontsize">
+        <label id="fontsize">
+            <label id="bold">6.1</label> ในรอบ 5 ปีที่ผ่านมา (พ.ศ.2556-2560)
+            <label id="bold">ที่อยู่อาศัยนี้</label>ประสบปัญหาอุทกภัย (น้ำท่วมขัง น้ำรอการระบาย) หรือไม่
+        </label>
+    </ion-item>
+    <ion-row radio-group (ionChange)="validateData()" [(ngModel)]="section6.A6_1">
+        <ion-col>
+            <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>มีปัญหา</ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+            <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่มีปัญหา</ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <p id="error2" *ngIf="!validate21p6.A6_1 && notValid" danger padding-left>กรุณาตอบคำถาม <label id="bold">ที่อยู่อาศัย</label>นี้ประสบปัญหาอุทกภัย (น้้าท่วมขัง น้้ารอการระบาย) หรือไม่ </p>
+    <div *ngIf="section6.A6_1 == true">
+        <ion-item  text-wrap no-lines >
+            <label id="fontsize">
+                <label id="bold">6.2</label>ถ้า "มี" แต่ละปีเกิดอุทกภัยกี่ครั้ง ระยะเวลาที่น้้าท่วมขังโดยเฉลี่ยนานกี่วัน กี่ชั่วโมง และระดับความสูง
+                ของน้้าท่วมสูงกี่เซนติเมตร
+            </label>
+        </ion-item>
+        <ion-grid id="border-table">
+            <ion-row class="">
+                <ion-col class=" table-header text-center">ปี</ion-col>
+                <ion-col class=" table-header text-center">จำนวนครั้งที่เกิดอุทกภัย</ion-col>
+                <ion-col class=" table-header text-center">
+                    <label>ระยะเวลาที่น้ำท่วมขังโดยเฉลี่ย</label>
+                </ion-col>
+                <ion-col class=" table-header text-center">
+                    <label>ระดับความสูงของน้ำท่วมเฉลี่ย</label>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col class=""></ion-col>
+                <ion-col class=""></ion-col>
+                <ion-col class="">
+                    <ion-row>
+                        <ion-col class="table-header text-center border-right split-margin">
+                            <label>จำนวนวัน</label>
+                        </ion-col>
+                        <ion-col class="table-header text-center split-margin">
+                            <label>จำนวนชั่วโมง</label>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col class=" table-header text-center">
+                    <label>(เซนติเมตร)</label>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col class=" table-header text-center"> พ.ศ. 2560</ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_1_1" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+                <ion-col class="">
+                    <ion-row>
+                        <ion-col class="split-margin border-right">
+                            <ion-input [(ngModel)]="section6.A6_2_1_2" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col class="split-margin">
+                            <ion-input [(ngModel)]="section6.A6_2_1_3" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_1_4" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col class=" table-header text-center"> พ.ศ. 2559</ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_2_1" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+                <ion-col class="">
+                    <ion-row>
+                        <ion-col class="split-margin border-right">
+                            <ion-input [(ngModel)]="section6.A6_2_2_2" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col class="split-margin">
+                            <ion-input [(ngModel)]="section6.A6_2_2_3" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_2_4" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col class=" table-header text-center"> พ.ศ. 2558</ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_3_1" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+                <ion-col class="">
+                    <ion-row>
+                        <ion-col class="split-margin border-right">
+                            <ion-input [(ngModel)]="section6.A6_2_3_2" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col class="split-margin">
+                            <ion-input [(ngModel)]="section6.A6_2_3_3" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_3_4" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col class=" table-header text-center"> พ.ศ. 2557</ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_4_1" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+                <ion-col class="">
+                    <ion-row>
+                        <ion-col class="split-margin border-right">
+                            <ion-input [(ngModel)]="section6.A6_2_4_2" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col class="split-margin">
+                            <ion-input [(ngModel)]="section6.A6_2_4_3" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_4_4" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="">
+                <ion-col class=" table-header text-center"> พ.ศ. 2556</ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_5_1" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+                <ion-col class="">
+                    <ion-row>
+                        <ion-col class="split-margin border-right">
+                            <ion-input [(ngModel)]="section6.A6_2_5_2" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col class="split-margin">
+                            <ion-input [(ngModel)]="section6.A6_2_5_3" (ionChange)="validateData()" type="number"></ion-input>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col class="">
+                    <ion-input [(ngModel)]="section6.A6_2_5_4" (ionChange)="validateData()" type="number"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <p id="error2" *ngIf="(!validate21p6.A6_2_5_1 && !validate21p6.A6_2_4_1 && !validate21p6.A6_2_3_1 && !validate21p6.A6_2_2_1 && !validate21p6.A6_2_1_1) && notValid"
+            danger padding-left>กรุณากรอก จำนวนจำนวนครั้งที่เกิดอุทกภัย ให้ถูกต้อง </p>
+        <p id="error2" *ngIf="(!validate21p6.A6_2_5_2 && !validate21p6.A6_2_4_2 && !validate21p6.A6_2_3_2 && !validate21p6.A6_2_2_2 && !validate21p6.A6_2_1_2) && notValid"
+            danger padding-left>กรุณากรอก วัน ให้ถูกต้อง </p>
+        <p id="error2" *ngIf="(!validate21p6.A6_2_5_3 && !validate21p6.A6_2_4_3 && !validate21p6.A6_2_3_3 && !validate21p6.A6_2_2_3 && !validate21p6.A6_2_1_3) && notValid"
+            danger padding-left>กรุณากรอก ชั่วโมง ให้ถูกต้อง </p>
+        <p id="error2" *ngIf="(!validate21p6.A6_2_5_4 && !validate21p6.A6_2_4_4 && !validate21p6.A6_2_3_4 && !validate21p6.A6_2_2_4 && !validate21p6.A6_2_1_4) && notValid"
+            danger padding-left>กรุณากรอก ระดับความสูงของน้ำท่วมเฉลี่ย ให้ถูกต้อง </p>
+        <p id="error2" *ngIf="!validate21p6.A6_2 && notValid" danger padding-left>กรุณากรอก ข้อมูลการเกิดอุทกภัย ให้ถูกต้อง </p>
+        <p id="warning" *ngIf=" section6.A6_2_1_1>=10 && section6.A6_2_1_1<=99 " danger padding-left>กรุณาตรวจสอบจำนวนครั้งที่เกิดอุทกภัยในพ.ศ. 2560 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_1_2>=100 && section6.A6_2_1_2<=365 " danger padding-left>กรุณาตรวจสอบจำนวนวันที่เกิดอุทกภัยในพ.ศ. 2560 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_1_4>=100 && section6.A6_2_1_4<=999 " danger padding-left>กรุณาตรวจสอบระดับความสูงของน้ำท่วมเฉลี่ย(ซม.)ที่เกิดอุทกภัยในพ.ศ. 2560 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_2_1>=10 && section6.A6_2_2_1<=99 " danger padding-left>กรุณาตรวจสอบจำนวนครั้งที่เกิดอุทกภัยในพ.ศ. 2559 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_2_2>=100 && section6.A6_2_2_2<=365 " danger padding-left>กรุณาตรวจสอบจำนวนวันที่เกิดอุทกภัยในพ.ศ. 2559 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_2_4>=100 && section6.A6_2_2_4<=999 " danger padding-left>กรุณาตรวจสอบระดับความสูงของน้ำท่วมเฉลี่ย(ซม.)ที่เกิดอุทกภัยในพ.ศ. 2559 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_3_1>=10 && section6.A6_2_3_1<=99 " danger padding-left>กรุณาตรวจสอบจำนวนครั้งที่เกิดอุทกภัยในพ.ศ. 2558 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_3_2>=100 && section6.A6_2_3_2<=365 " danger padding-left>กรุณาตรวจสอบจำนวนวันที่เกิดอุทกภัยในพ.ศ. 2558 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_3_4>=100 && section6.A6_2_3_4<=999 " danger padding-left>กรุณาตรวจสอบระดับความสูงของน้ำท่วมเฉลี่ย(ซม.)ที่เกิดอุทกภัยในพ.ศ. 2558 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_4_1>=10 && section6.A6_2_4_1<=99 " danger padding-left>กรุณาตรวจสอบจำนวนครั้งที่เกิดอุทกภัยในพ.ศ. 2557 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_4_2>=100 && section6.A6_2_4_2<=365 " danger padding-left>กรุณาตรวจสอบจำนวนวันที่เกิดอุทกภัยในพ.ศ. 2557 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_4_4>=100 && section6.A6_2_4_4<=999 " danger padding-left>กรุณาตรวจสอบระดับความสูงของน้ำท่วมเฉลี่ย(ซม.)ที่เกิดอุทกภัยในพ.ศ. 2557 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_5_1>=10 && section6.A6_2_5_1<=99 " danger padding-left>กรุณาตรวจสอบจำนวนครั้งที่เกิดอุทกภัยในพ.ศ. 2556 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_5_2>=100 && section6.A6_2_5_2<=365 " danger padding-left>กรุณาตรวจสอบจำนวนวันที่เกิดอุทกภัยในพ.ศ. 2556 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <p id="warning" *ngIf=" section6.A6_2_5_4>=100 && section6.A6_2_5_4<=999 " danger padding-left>กรุณาตรวจสอบระดับความสูงของน้ำท่วมเฉลี่ย(ซม.)ที่เกิดอุทกภัยในพ.ศ. 2556 มีจำนวนที่เยอะผิดปกติหรือไม่</p>
+    </div>
+    <button ion-button (click)="save()">ถัดไป</button>
+</ion-list>

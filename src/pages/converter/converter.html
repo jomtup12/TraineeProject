@@ -1,0 +1,112 @@
+<!--
+  Generated template for the ConverterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+  <h1  class="text-center">ตารางมาตราวัด</h1>
+      <hr id="hr-line">    
+      <ion-list no-lines style="text-align: center">    
+      <ion-item>
+          <label>
+            <h1 class="title text-center"  style="margin-top: 5px">{{table1.name}}</h1>
+          </label>
+          <div class="row" *ngFor="let i of range(table1.source)">
+            <div class="col text-center" style="border-right : none;max-width: 220px;">{{table1.source[i]}}</div>
+            <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+              <label>เท่ากับ</label>
+            </div>
+            <div class="col text-center" style="border-left : none;max-width: 350px;">{{table1.dest[i]}}</div>
+          </div>
+      </ion-item>
+
+      <ion-item>
+          <label>
+            <h1 class="title text-center"  style="margin-top: 5px">{{table2.name}}</h1>
+          </label>
+          <div class="row" *ngFor="let i of range(table2.source)">
+            <div class="col text-center" style="border-right : none;max-width: 220px;">{{table2.source[i]}}</div>
+            <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+              <label>เท่ากับ</label>
+            </div>
+            <div class="col text-center" style="border-left : none;max-width: 350px;">{{table2.dest[i]}}</div>
+          </div>
+      </ion-item>
+
+      <ion-item>
+          <label>
+            <h1 class="title text-center"  style="margin-top: 5px">{{table3.name}}</h1>
+          </label>
+          <div class="row" *ngFor="let i of range(table3.source)">
+            <div class="col text-center" style="border-right : none;max-width: 220px;">{{table3.source[i]}}</div>
+            <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+              <label>เท่ากับ</label>
+            </div>
+            <div class="col text-center" style="border-left : none;max-width: 350px;">{{table3.dest[i]}}</div>
+          </div>
+      </ion-item>
+
+      <ion-item>
+        <label>
+          <h1 class="title text-center"  style="margin-top: 5px">{{table4.name}}</h1>
+        </label>
+        <div class="row" *ngFor="let i of range(table4.source)">
+          <div class="col text-center" style="border-right : none;max-width: 220px;">{{table4.source[i]}}</div>
+          <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+            <label>เท่ากับ</label>
+          </div>
+          <div class="col text-center" style="border-left : none;max-width: 350px;">{{table4.dest[i]}}</div>
+        </div>
+      </ion-item>
+      
+      <ion-item>
+          <label>
+            <h1 class="title text-center"  style="margin-top: 5px">{{table5.name}}</h1>
+          </label>
+          <div class="row" *ngFor="let i of range(table5.source)">
+            <div class="col text-center" style="border-right : none;max-width: 220px;">{{table5.source[i]}}</div>
+            <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+              <label>เท่ากับ</label>
+            </div>
+            <div class="col text-center" style="border-left : none;max-width: 350px;">{{table5.dest[i]}}</div>
+          </div>
+      </ion-item>
+
+      <ion-item>
+          <label>
+            <h1 class="title text-center"  style="margin-top: 5px">{{table6.name}}</h1>
+          </label>
+          <div class="row" *ngFor="let i of range(table6.source)">
+            <div class="col text-center" style="border-right : none;max-width: 220px;">{{table6.source[i]}}</div>
+            <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+              <label>เท่ากับ</label>
+            </div>
+            <div class="col text-center" style="border-left : none;max-width: 350px;">{{table6.dest[i]}}</div>
+          </div>
+      </ion-item>
+
+      <ion-item>
+          <label>
+            <h1 class="title text-center"  style="margin-top: 5px">{{table7.name}}</h1>
+          </label>
+          <div class="row" *ngFor="let i of range(table7.source)">
+            <div class="col text-center" style="border-right : none;max-width: 220px;">{{table7.source[i]}}</div>
+            <div class="col text-center" style="border-left : none;max-width: 30px;border-right : none">
+              <label>เท่ากับ</label>
+            </div>
+            <div class="col text-center" style="border-left : none;max-width: 350px;">{{table7.dest[i]}}</div>
+          </div>
+      </ion-item>
+    
+      </ion-list>
+  </ion-content>
+  <ion-footer class="applyFooter">
+    <ion-grid>  
+      <ion-col col-3 style="border : none">
+        <button ion-button (click)="home()" color="light">ย้อนกลับ</button>
+      </ion-col>
+    </ion-grid>
+  </ion-footer>
+

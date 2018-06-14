@@ -1,0 +1,43 @@
+<!-- Generated template for the FirstForm_2Component component -->
+<form [formGroup]="WaterCensus1Form2">
+    <ion-list no-lines>
+        <ion-item>
+            <ion-label stacked id="fontsize" text-wrap>จำนวนครัวเรือน/สถานประกอบการรวมทั้งหมด ในบ้าน/อาคาร/สิ่งปลูกสร้าง</ion-label>
+            <ion-input [(ngModel)]="sn1p2.N" formControlName="N" type="number" placeholder="จำนวนครัวเรือนในบ้าน/อาคาร/สิ่งปลูกสร้าง" (ionChange)="validate()"></ion-input>
+        </ion-item>
+        <p id="error" *ngIf="!WaterCensus1Form2.controls.N.valid && notValid" danger padding-left>กรุณากรอกข้อมูล จำนวนครัวเรือนในบ้าน/อาคาร/สิ่งปลูกสร้าง</p>
+        <div *ngIf="sn1p2.A8 == '4'||sn1p2.A8 == '5' || sn1p2.A8 == null">
+            <ion-item>
+                <ion-label stacked id="fontsize">การอนุญาตให้เข้าอาคาร</ion-label>
+            </ion-item>
+            <ion-row radio-group formControlName="H1_4" [(ngModel)]="sn1p2.H1_4">
+                <ion-col>
+                    <ion-item>
+                        <ion-radio item-left [value]=1></ion-radio>
+                        <ion-label>ให้ความร่วมมือ</ion-label>
+                    </ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-item>
+                        <ion-radio item-left [value]=2></ion-radio>
+                        <ion-label>ไม่ให้ความร่วมมือ</ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <div *ngIf="sn1p2.H1_4==2">
+            <ion-item>
+                <ion-label stacked id="fontsize">จำนวนห้องที่มีผู้อาศัย/ จำนวนสถานประกอบการ</ion-label>
+                <ion-input [(ngModel)]="sn1p2.N1" formControlName="N1" type="number" placeholder="จำนวนห้องที่มีผู้อาศัย/ จำนวนสถานประกอบการ" (ionChange)="validate()"></ion-input>
+            </ion-item>
+            <p id="error" *ngIf="!WaterCensus1Form2.controls.N1.valid && notValid" danger padding-left>กรุณากรอกข้อมูล จำนวนห้องที่มีผู้อาศัย/ จำนวนสถานประกอบการ</p>
+            <ion-item>
+                <ion-label stacked id="fontsize">จำนวนห้องว่าง</ion-label>
+                <ion-input [(ngModel)]="sn1p2.N0" formControlName="N0" type="number" placeholder="จำนวนห้องว่าง" (ionChange)="validate()"></ion-input>
+            </ion-item>
+            <p id="error" *ngIf="!WaterCensus1Form2.controls.N0.valid && notValid" danger padding-left>กรุณากรอกข้อมูล จำนวนว่าง</p></div>
+        </div>
+
+
+        <button ion-button (click)=saveData() color="#5bc0de">ถัดไป</button>
+    </ion-list>
+</form>

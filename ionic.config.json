@@ -1,0 +1,8 @@
+{
+  "name": "NSO-waterMGT",
+  "app_id": "c2d3f2cd",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

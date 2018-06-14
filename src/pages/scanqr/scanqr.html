@@ -1,0 +1,19 @@
+<!--
+  Generated template for the ScanqrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding style="text-align:center;background: none transparent;">
+    <h1 class="text-center">เปิดใช้งาน Tablet</h1>
+    <hr id="hr-line">
+    <label style="font-size:1.5em;font-weight:bold;">สแกน QR Code เพื่อยืนยันตัวตน</label>
+    <ion-item style="text-align:center;">
+  <img src='assets/imgs/scanQR.png' (click)="Scan()" style="width:40%"> </ion-item>
+  <button ion-button full (click)="Scan()" style="font-size:1.5em;">กดเพื่อเริ่มสแกน</button>
+  <button ion-button full (click)="Back()" color="light" style="font-size:1.5em;">ย้อนกลับ</button>
+  
+</ion-content>

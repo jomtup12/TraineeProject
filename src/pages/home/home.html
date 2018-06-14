@@ -1,0 +1,588 @@
+<ion-header>
+  <ion-item>
+    <img item-start src="assets/imgs/logo.png" style="width:200px;">
+    <button id="notification-button" ion-button large item-end (click)="toggleMenu()">
+      <ion-icon name="menu">
+        <ion-badge id="notifications-badge" color="danger" *ngIf="countStatus!=0">{{countStatus}}</ion-badge>
+      </ion-icon>
+    </button>
+  </ion-item>
+</ion-header>
+<ion-content class="home">
+  <div id='block_container' *ngIf="haveData">
+
+
+    <div id="left-panel" style="margin: 10px">
+      <ion-segment full [(ngModel)]="page">
+        <ion-segment-button full style="font-size:1.1em;color:black" value="1" text-wrap>
+          สถานะข้อมูลอาคาร
+        </ion-segment-button>
+      </ion-segment>
+      <!-- <ion-segment full [(ngModel)]="page">
+        <ion-segment-button full style="font-size:1.1em;color:black" value="2">
+          หยุดชั่วคราว <label *ngIf="countPause">({{countPause}})</label>
+        </ion-segment-button>
+      </ion-segment> -->
+      <ion-segment full [(ngModel)]="page">
+        <ion-segment-button full style="font-size:1.1em;color:black" value="3">
+          FS ให้แก้ไข
+          <label *ngIf="countEdit">({{countEdit}})</label>
+        </ion-segment-button>
+      </ion-segment>
+      <!-- <ion-segment full [(ngModel)]="page">
+        <ion-segment-button full style="font-size:1.1em;color:black" value="4">
+          ค้นหา
+        </ion-segment-button>
+      </ion-segment> -->
+      <ion-segment full [(ngModel)]="page">
+        <ion-segment-button full style="font-size:1.1em;color:black" value="5">
+          สน.2-2 พื้นที่ย่อย
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div class="w-75">
+      <div id='center-panel' *ngIf="sn1">
+        <ion-list>
+          สถานะของ EA :
+          <ion-label id="fontsize" text-wrap> {{EAList[0].REG_NAME}} {{EAList[0].CWT_NAME}} {{EAList[0].AMP_NAME}} {{EAList[0].TAM_NAME}} {{EAList[0].DISTRICT}}
+            {{EAList[0].EA}}</ion-label>
+          <ion-grid radio-group [(ngModel)]="sn1.status_data" [disabled]='!isenabled'>
+          <ion-row>
+            <ion-col col-6>
+              <ion-item>
+                <ion-radio style="margin:0px;" item-left [value]=0></ion-radio>
+                <ion-label text-wrap 
+                style="margin:5px;">กำลังสำรวจ</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-radio style="margin:0px;" item-left [value]=1></ion-radio>
+                <ion-label text-wrap style="margin:5px;">สำรวจครบแล้ว</ion-label>
+              </ion-item>
+            </ion-col>
+            </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <ion-item>
+                <ion-radio style="margin:0px;" item-left [value]=2></ion-radio>
+                <ion-label text-wrap style="margin:5px;">ตรวจสอบแล้ว</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-radio style="margin:0px;" item-left [value]=3></ion-radio>
+                <ion-label text-wrap style="margin:5px;">อนุมัติแล้ว</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+          <ion-row>
+          <button ion-button color="light" (click)="refresh()" style="margin-left:15%">
+            <ion-icon name="md-refresh" style="margin-right:5px;"></ion-icon> อัปเดตข้อมูล</button>
+            <button ion-button color="secondary" (click)="navigate('map')" style="margin-left:20px">
+              <ion-icon name="md-compass" style="margin-right:5px;"></ion-icon> ดูแผนที่</button>
+            </ion-row>
+        </ion-list>
+      </div>
+    </div>
+
+    
+
+  </div>
+  <div *ngIf="haveData" [ngSwitch]="page">
+    <hr style="width: 100%;margin-top:-10px; border-top: 1px solid;">
+    <div *ngSwitchCase="'1'">
+      <ion-segment [(ngModel)]="data">
+        <ion-segment-button value="1" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+          ข้อมูลทั้งหมด
+        </ion-segment-button>
+        <ion-segment-button value="2" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+          <ion-icon name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>ส่งแล้ว
+        </ion-segment-button>
+        <ion-segment-button value="3" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+          <ion-icon name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+          รอส่ง
+        </ion-segment-button>
+        <ion-segment-button value="4" style="font-family:Arial; font-size: 12px; background-color: #fdfd96; color: black">
+          <ion-icon name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+          หยุดชั่วคราว
+        </ion-segment-button>
+        <ion-segment-button value="5" style="font-family:Arial; font-size: 8px; background-color: #fdfd96; color: black">
+          <ion-icon name="md-stopwatch" color="red-pig" style="margin-right:5px"></ion-icon>
+          สำรวจครั้งที่ 2 และ 3
+        </ion-segment-button>
+      </ion-segment>
+      <div *ngIf="data == '1'">
+        <ion-grid *ngIf="sn1">
+          <ion-row>
+            <ion-col col-7>
+              <button ion-button (click)="createForm(EAList[0])" style="font-size:0.45em">สำรวจหน่วยต่อไป</button>
+              <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+            </ion-col>
+            <ion-col col-4>
+              <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
+            </ion-col>
+            <ion-col col-1>
+              <button ion-button color="light">
+                <ion-icon name="md-search" style="font-size:15px;" (click)="search()"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+            <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+            <ion-col col-3 style="font-size:18px;">บ้านเลขที่</ion-col>
+            <ion-col col-3 style="font-size:18px;">ชื่อสถานที่</ion-col>
+            <ion-col col-4><ion-row text-wrap style="font-size:16px;margin-left:auto;">
+              # ครัวเรือน / สถานประกอบการ
+            </ion-row>
+            <ion-row style="text-align:center">
+                <ion-col col-6 style="font-size:16px;">ทั้งสิ้น</ion-col>
+                <ion-col col-6 style="font-size:16px;">ไม่สมบูรณ์</ion-col>
+            </ion-row></ion-col>
+            <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let sn12 of searchDisplay.reverse()" style="text-align:center;border-bottom: 0.5px groove;">
+            <ion-col col-1 style="font-size:15px;" (click)="editForm(sn12)" >
+              
+              <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+              <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+              <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+              <ion-icon *ngIf="sn12.status==1||sn12.status==2" name="md-stopwatch" color="red-pig" style="margin-right:5px"></ion-icon>
+              <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon>
+              {{sn12.A1}}  
+            </ion-col>
+            <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >{{sn12.A5}}</ion-col>
+            <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >{{sn12.A4}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.N">{{sn12.N}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.N">0</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.Ncount">{{sn12.Ncount}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.Ncount"></ion-col>
+            <ion-col col-1 style="font-size:18px;">
+              <button ion-button color="danger" (click)="deleteForm(sn12)" style="font-size:10px;">
+                ลบ
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div *ngIf="data == '2'">
+          <ion-grid *ngIf="sn1">
+            <ion-row>
+              <ion-col col-7>
+                <button ion-button (click)="createForm(EAList[0])" style="font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+              </ion-col>
+              <ion-col col-4>
+                <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
+              </ion-col>
+              <ion-col col-1>
+                <button ion-button color="light">
+                  <ion-icon name="md-search" style="font-size:15px;"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+              <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+              <ion-col col-3 style="font-size:18px;">บ้านเลขที่</ion-col>
+              <ion-col col-3 style="font-size:18px;">ชื่อสถานที่</ion-col>
+              <ion-col col-4><ion-row text-wrap style="font-size:16px;margin-left:auto;">
+                # ครัวเรือน / สถานประกอบการ
+              </ion-row>
+              <ion-row style="text-align:center">
+                  <ion-col col-6 style="font-size:16px;">ทั้งสิ้น</ion-col>
+                  <ion-col col-6 style="font-size:16px;">ไม่สมบูรณ์</ion-col>
+              </ion-row></ion-col>
+              <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+            </ion-row>
+            <div *ngFor="let sn12 of searchDisplay">
+            <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==6">
+              <ion-col col-1 style="font-size:15px;" (click)="editForm(sn12)" >
+                  
+                  <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                  <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                  <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                  <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon>
+                  {{sn12.A1}}
+              </ion-col>
+              <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >
+                  {{sn12.A5}}
+              </ion-col>
+              <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >{{sn12.A4}}</ion-col>
+              <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.N">{{sn12.N}}</ion-col>
+              <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.N">0</ion-col>
+              <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.Ncount">{{sn12.Ncount}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.Ncount"></ion-col>
+              <ion-col col-1 style="font-size:18px;">
+                <button ion-button color="danger" (click)="deleteForm(sn12)" style="font-size:10px;">
+                  ลบ
+                </button>
+              </ion-col>
+            </ion-row>
+            </div>
+          </ion-grid>
+        </div>
+        <div *ngIf="data == '3'">
+            <ion-grid *ngIf="sn1">
+              <ion-row>
+                <ion-col col-7>
+                  <button ion-button (click)="createForm(EAList[0])" style="font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                  <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+                </ion-col>
+                <ion-col col-4>
+                  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
+                </ion-col>
+                <ion-col col-1>
+                  <button ion-button color="light">
+                    <ion-icon name="md-search" style="font-size:15px;"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+              <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                <ion-col col-3 style="font-size:18px;">บ้านเลขที่</ion-col>
+                <ion-col col-3 style="font-size:18px;">ชื่อสถานที่</ion-col>
+                <ion-col col-4><ion-row text-wrap style="font-size:16px;margin-left:auto;">
+                  # ครัวเรือน / สถานประกอบการ
+                </ion-row>
+                <ion-row style="text-align:center">
+                    <ion-col col-6 style="font-size:16px;">ทั้งสิ้น</ion-col>
+                    <ion-col col-6 style="font-size:16px;">ไม่สมบูรณ์</ion-col>
+                </ion-row></ion-col>
+                <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+              </ion-row>
+              <div *ngFor="let sn12 of searchDisplay">
+              <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==4">
+                <ion-col col-1 style="font-size:15px;" (click)="editForm(sn12)" >
+                    
+                    <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                    <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                    <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                    <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon>
+                    {{sn12.A1}}
+                </ion-col>
+                <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >
+                    {{sn12.A5}}
+                </ion-col>
+                <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >{{sn12.A4}}</ion-col>
+                <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.N">{{sn12.N}}</ion-col>
+                <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.N">0</ion-col>
+                <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.Ncount">{{sn12.Ncount}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.Ncount"></ion-col>
+                <ion-col col-1 style="font-size:18px;">
+                  <button ion-button color="danger" (click)="deleteForm(sn12)" style="font-size:10px;">
+                    ลบ
+                  </button>
+                </ion-col>
+              </ion-row>
+              </div>
+            </ion-grid>
+          </div>
+          <div *ngIf="data == '4'">
+              <ion-grid *ngIf="sn1">
+                <ion-row>
+                  <ion-col col-7>
+                    <button ion-button (click)="createForm(EAList[0])" style="font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                    <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
+                  </ion-col>
+                  <ion-col col-1>
+                    <button ion-button color="light">
+                      <ion-icon name="md-search" style="font-size:15px;"></ion-icon>
+                    </button>
+                  </ion-col>
+                </ion-row>
+                <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                  <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                  <ion-col col-3 style="font-size:18px;">บ้านเลขที่</ion-col>
+                  <ion-col col-3 style="font-size:18px;">ชื่อสถานที่</ion-col>
+                  <ion-col col-4><ion-row text-wrap style="font-size:16px;margin-left:auto;">
+                    # ครัวเรือน / สถานประกอบการ
+                  </ion-row>
+                  <ion-row style="text-align:center">
+                      <ion-col col-6 style="font-size:16px;">ทั้งสิ้น</ion-col>
+                      <ion-col col-6 style="font-size:16px;">ไม่สมบูรณ์</ion-col>
+                  </ion-row></ion-col>
+                  <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+                </ion-row>
+                <div *ngFor="let sn12 of searchDisplay">
+                <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==3||sn12.status==5">
+                  <ion-col col-1 style="font-size:15px;" (click)="editForm(sn12)" >
+                      
+                      <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                      <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                      <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                      <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon>
+                      {{sn12.A1}}
+                  </ion-col>
+                  <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >
+                      {{sn12.A5}}
+                  </ion-col>
+                  <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >{{sn12.A4}}</ion-col>
+                  <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.N">{{sn12.N}}</ion-col>
+                  <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.N">0</ion-col>
+                  <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.Ncount">{{sn12.Ncount}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.Ncount"></ion-col>
+                  <ion-col col-1 style="font-size:18px;">
+                    <button ion-button color="danger" (click)="deleteForm(sn12)" style="font-size:10px;">
+                      ลบ
+                    </button>
+                  </ion-col>
+                </ion-row>
+                </div>
+              </ion-grid>
+            </div>
+            <div *ngIf="data == '5'">
+                <ion-grid *ngIf="sn1">
+                  <ion-row>
+                    <ion-col col-7>
+                      <button ion-button (click)="createForm(EAList[0])" style="font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                      <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+                    </ion-col>
+                    <ion-col col-1>
+                      <button ion-button color="light">
+                        <ion-icon name="md-search" style="font-size:15px;"></ion-icon>
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                    <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                    <ion-col col-3 style="font-size:18px;">บ้านเลขที่</ion-col>
+                    <ion-col col-3 style="font-size:18px;">ชื่อสถานที่</ion-col>
+                    <ion-col col-4><ion-row text-wrap style="font-size:16px;margin-left:auto;">
+                      # ครัวเรือน / สถานประกอบการ
+                    </ion-row>
+                    <ion-row style="text-align:center">
+                        <ion-col col-6 style="font-size:16px;">ทั้งสิ้น</ion-col>
+                        <ion-col col-6 style="font-size:16px;">ไม่สมบูรณ์</ion-col>
+                    </ion-row></ion-col>
+                    <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+                  </ion-row>
+                  <div *ngFor="let sn12 of searchDisplay.reverse()">
+                  <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==1 || sn12.status==2">
+                    <ion-col col-1 style="font-size:15px;" (click)="editForm(sn12)" >
+                        
+                        <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==1||sn12.status==2" name="md-stopwatch" color="red-pig" style="margin-right:5px"></ion-icon>
+                        {{sn12.A1}}
+                    </ion-col>
+                    <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >
+                        {{sn12.A5}}
+                    </ion-col>
+                    <ion-col col-3 style="font-size:18px;" (click)="editForm(sn12)" >{{sn12.A4}}</ion-col>
+                    <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.N">{{sn12.N}}</ion-col>
+                    <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.N">0</ion-col>
+                    <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="sn12.Ncount">{{sn12.Ncount}}</ion-col>
+            <ion-col col-2 style="font-size:18px;" (click)="editForm(sn12)" *ngIf="!sn12.Ncount"></ion-col>
+                    <ion-col col-1 style="font-size:18px;">
+                      <button ion-button color="danger" (click)="deleteForm(sn12)" style="font-size:10px;">
+                        ลบ
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                  </div>
+                </ion-grid>
+              </div>
+    </div>
+    <div *ngSwitchCase="'5'">
+        <ion-segment [(ngModel)]="data">
+          <ion-segment-button value="1" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+            ข้อมูลทั้งหมด
+          </ion-segment-button>
+          <ion-segment-button value="2" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+            <ion-icon name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>ส่งแล้ว
+          </ion-segment-button>
+          <ion-segment-button value="3" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+            <ion-icon name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+            รอส่ง
+          </ion-segment-button>
+          <ion-segment-button value="4" style="font-family:Arial; font-size: 18px; background-color: #fdfd96; color: black">
+            <ion-icon name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+            หยุดชั่วคราว
+          </ion-segment-button>
+        </ion-segment>
+        <div *ngIf="data == '1'">
+          <ion-grid *ngIf="sn1">
+            <ion-row>
+              <button ion-button (click)="createForm22(EAList[0])" style="margin-left:25%;font-size:0.45em">สำรวจหน่วยต่อไป</button>
+              <button ion-button color="secondary" (click)="uploadAll2()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+            </ion-row>
+            <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+              <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+              <ion-col col-4 style="font-size:18px;">หมู่ที่</ion-col>
+              <ion-col col-6 style="font-size:18px;">ชื่อหมู่บ้าน</ion-col>
+             
+              <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let sn12 of sn22;let i=index;" style="text-align:center;border-bottom: 0.5px groove;">
+              <ion-col col-1 style="font-size:15px;" (click)="editForm22(sn12)" >
+                
+                <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon> 
+                {{i+1}}
+              </ion-col>
+              <ion-col col-4 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL}}</ion-col>
+              <ion-col col-6 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL_NAME}}</ion-col>
+             <ion-col col-1 style="font-size:18px;">
+                <button ion-button color="danger" (click)="deleteForm22(sn12)" style="font-size:10px;">
+                  ลบ
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div *ngIf="data == '2'">
+            <ion-grid *ngIf="sn1">
+              <ion-row>
+                <button ion-button (click)="createForm22(EAList[0])" style="margin-left:25%;font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                <button ion-button color="secondary" (click)="uploadAll2()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+              </ion-row>
+              <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                <ion-col col-4 style="font-size:18px;">หมู่ที่</ion-col>
+                <ion-col col-6 style="font-size:18px;">ชื่อหมู่บ้าน</ion-col>
+               
+                <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+              </ion-row>
+              <div *ngFor="let sn12 of sn22;let i=index;">
+              <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==6">
+                <ion-col col-1 style="font-size:15px;" (click)="editForm22(sn12)" >
+                
+                  <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                  <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                  <ion-icon *ngIf="sn12.status==3" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                  <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon> 
+                  {{i+1}}
+                </ion-col>
+                <ion-col col-4 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL}}</ion-col>
+                <ion-col col-6 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL_NAME}}</ion-col>
+               <ion-col col-1 style="font-size:18px;">
+                  <button ion-button color="danger" (click)="deleteForm22(sn12)" style="font-size:10px;">
+                    ลบ
+                  </button>
+                </ion-col>
+              </ion-row>
+              </div>
+            </ion-grid>
+          </div>
+          <div *ngIf="data == '3'">
+              <ion-grid *ngIf="sn1">
+                <ion-row>
+                  <button ion-button (click)="createForm22(EAList[0])" style="margin-left:25%;font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                  <button ion-button color="secondary" (click)="uploadAll2()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+                </ion-row>
+                <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                  <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                  <ion-col col-4 style="font-size:18px;">หมู่ที่</ion-col>
+                  <ion-col col-6 style="font-size:18px;">ชื่อหมู่บ้าน</ion-col>
+                 
+                  <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+                </ion-row>
+                <div *ngFor="let sn12 of sn22;let i=index;">
+                <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==4">
+                  <ion-col col-1 style="font-size:15px;" (click)="editForm22(sn12)" >
+                  
+                    <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                    <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                    <ion-icon *ngIf="sn12.status==3" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                    <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon> 
+                    {{i+1}}
+                  </ion-col>
+                  <ion-col col-4 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL}}</ion-col>
+                  <ion-col col-6 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL_NAME}}</ion-col>
+                 <ion-col col-1 style="font-size:18px;">
+                    <button ion-button color="danger" (click)="deleteForm22(sn12)" style="font-size:10px;">
+                      ลบ
+                    </button>
+                  </ion-col>
+                </ion-row>
+                </div>
+              </ion-grid>
+            </div>
+            <div *ngIf="data == '4'">
+                <ion-grid *ngIf="sn1">
+                  <ion-row>
+                    <button ion-button (click)="createForm22(EAList[0])" style="margin-left:25%;font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                    <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+                  </ion-row>
+                  <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                    <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                    <ion-col col-4 style="font-size:18px;">หมู่ที่</ion-col>
+                    <ion-col col-6 style="font-size:18px;">ชื่อหมู่บ้าน</ion-col>
+                   
+                    <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+                  </ion-row>
+                  <div *ngFor="let sn12 of sn22;let i=index;">
+                  <ion-row  style="text-align:center;border-bottom: 0.5px groove;" *ngIf="sn12.status==3">
+                    <ion-col col-1 style="font-size:15px;" (click)="editForm22(sn12)" >
+                    
+                      <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                      <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                      <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                      <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon> 
+                      {{i+1}}
+                    </ion-col>
+                    <ion-col col-4 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL}}</ion-col>
+                    <ion-col col-6 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL_NAME}}</ion-col>
+                   <ion-col col-1 style="font-size:18px;">
+                      <button ion-button color="danger" (click)="deleteForm22(sn12)" style="font-size:10px;">
+                        ลบ
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                  </div>
+                </ion-grid>
+              </div>
+              <div *ngIf="data == '5'">
+                  <ion-grid *ngIf="sn1">
+                    <ion-row>
+                      <button ion-button (click)="createForm22(EAList[0])" style="margin-left:25%;font-size:0.45em">สำรวจหน่วยต่อไป</button>
+                      <button ion-button color="secondary" (click)="uploadAll()" style="margin-left:20px;font-size:0.45em">สำรวจครบทุกหน่วยใน EA</button>
+                    </ion-row>
+                    <ion-row style="text-align:center;border-bottom:1px solid;border-top:1px solid;">
+                      <ion-col col-1 style="font-size:15px;">ลำดับที่</ion-col>
+                      <ion-col col-4 style="font-size:18px;">หมู่ที่</ion-col>
+                      <ion-col col-6 style="font-size:18px;">ชื่อหมู่บ้าน</ion-col>
+                     
+                      <ion-col col-1 style="font-size:14px;" no-margin>ลบ</ion-col>
+                    </ion-row>
+                    <div *ngFor="let sn12 of sn22;let i=index;">
+                    <ion-row  style="text-align:center;border-bottom: 0.5px groove;">
+                      <ion-col col-1 style="font-size:15px;" (click)="editForm22(sn12)" >
+                      
+                        <ion-icon *ngIf="sn12.status==6" name="md-cloud-done" color="secondary" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==4" name="md-checkmark-circle-outline" color="secondary" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==3||sn12.status==5" name="md-pause" color="red-pig" style="margin-right:5px"></ion-icon>
+                        <ion-icon *ngIf="sn12.status==10" name="md-build" color="danger" style="margin-right:5px"></ion-icon> 
+                        {{i+1}}
+                      </ion-col>
+                      <ion-col col-4 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL}}</ion-col>
+                      <ion-col col-6 style="font-size:18px;" (click)="editForm22(sn12)" text-wrap>{{sn12.B0.VIL_NAME}}</ion-col>
+                     <ion-col col-1 style="font-size:18px;">
+                        <button ion-button color="danger" (click)="deleteForm22(sn12)" style="font-size:10px;">
+                          ลบ
+                        </button>
+                      </ion-col>
+                    </ion-row>
+                    </div>
+                  </ion-grid>
+                </div>
+      </div>
+  </div>
+  <div *ngIf="!haveData">
+    <button ion-button full style="text-align: center;width:80%;margin:auto;margin-top:30%;height:4em" (click)="navigate('download')">
+      <ion-icon name="md-cloud-download" color="light" style="font-size: 4em;margin-right:10px;"></ion-icon>
+      <label style="color:white;font-size: 3.5em">รับงาน</label>
+    </button>
+  </div>
+</ion-content>

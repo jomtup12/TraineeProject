@@ -1,0 +1,57 @@
+form2section6 {
+    ion-input, ion-select, ion-textarea {
+        background-color: #f2f2f2;
+        padding: 5px 10px;
+    }
+    #border-table{
+        border: solid #555;
+        
+    }
+    // #thick-header2{
+    //     background: #d0d3d3;
+    //     text-align: center;
+    //     padding: 0; margin: 0;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     border-top: solid #555;
+    //     border-left: solid #555; 
+    // }
+    // #thick-border2{
+    //     background: #f2f2f2;
+    //     text-align: center;
+    //     padding: 0; margin: 0;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     border-top: solid #555;
+    //     border-left: solid #555; 
+    // }
+    #error2{
+        color: red;
+       font-size: 0.8em;
+    }
+    p {
+        font-size: 0.8em;
+        
+    }
+    .invalid {
+        border: 1px solid #ea6153;
+    }
+    #container{
+        display: block;
+        width: 95%;
+        padding-left: 5px;
+        top: 10%;
+        text-align: left;
+    }
+}
+
+// .border-right {
+//     border-right: solid 1px grey;
+// }
+
+.split-margin {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}

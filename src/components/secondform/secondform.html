@@ -1,0 +1,225 @@
+<!-- Generated template for the SecondformComponent component -->
+<ion-list no-lines id="container">
+  <hr id="hr-line">
+  <ion-row>
+    <button ion-button (click)="addFamily()" style>
+      เพิ่ม ครัวเรือน/สถานประกอบการ
+    </button>
+    <button ion-button color="danger" (click)="removeFamily()">
+      ลบ ครัวเรือน/สถานประกอบการ
+    </button>
+  </ion-row>
+  <ion-list *ngFor="let family of sn1p2.H3">
+    <div id="border-div">
+      <ion-grid>
+        <div>
+          <ion-label id="bold" text-wrap>3.1 ลำดับครัวเรือนสถานประกอบการในบ้าน/อาคาร/สิ่งปลูกสร้าง (ยูนิตย่อย)</ion-label>
+          <ion-row id=thick-border>
+            <ion-col>
+              <ion-label>ลำดับครัวเรือน / สถานประกอบการในอาคาร</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label id="bold">{{family.H3}}</ion-label>
+            </ion-col>
+          </ion-row>
+          <div *ngIf="sn1p2.H3.length > 1">
+            <ion-row>
+              <ion-col>
+                <ion-label style="margin-left: 10px" text-wrap>บันทึกเลขที่/หมายเลขห้องของยูนิตย่อย/ส่วนกลางหรือนิติบุคคล</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-input [(ngModel)]="family.H4" placeholder="หมายเลขห้อง" (ionChange)="validate()"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-item>
+              <ion-label stacked>ผลการเข้าพบ 1/3</ion-label>
+              <ion-select [(ngModel)]="family.H5_1" placeholder="กรุณาเลือกผลการเข้าพบ" (ionChange)="validate()" interface="action-sheet" cancelText="ยกเลิก" [disabled]="family.status>=1&&family.status<4">
+                <ion-option [value]=1>1.มีผู้ให้ข้อมูลให้ความร่วมมือ</ion-option>
+                <ion-option [value]=2>2.ผู้ให้ข้อมูล แต่ไม่ให้ความร่วมมือ</ion-option>
+                <ion-option [value]=3>3.ไม่มี/ไม่พบผู้ให้ข้อมูล</ion-option>
+                <ion-option [value]=4>4.ห้อง/บ้าน/อาคาร ว่าง/ร้าง</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="family.status>1&&family.H5_2!=null||family.status==1">
+              <ion-label stacked>ผลการเข้าพบ 2/3</ion-label>
+              <ion-select [(ngModel)]="family.H5_2" placeholder="กรุณาเลือกผลการเข้าพบ" (ionChange)="validate()" interface="action-sheet" cancelText="ยกเลิก" [disabled]="family.status>1&&family.status<4">
+                <ion-option [value]=1>1.มีผู้ให้ข้อมูลให้ความร่วมมือ</ion-option>
+                <ion-option [value]=2>2.ผู้ให้ข้อมูล แต่ไม่ให้ความร่วมมือ</ion-option>
+                <ion-option [value]=3>3.ไม่มี/ไม่พบผู้ให้ข้อมูล</ion-option>
+                <ion-option [value]=4>4.ห้อง/บ้าน/อาคาร ว่าง/ร้าง</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="family.status>2&&family.H5_3!=null||family.status==2">
+              <ion-label stacked>ผลการเข้าพบ 3/3</ion-label>
+              <ion-select [(ngModel)]="family.H5_3" placeholder="กรุณาเลือกผลการเข้าพบ" (ionChange)="validate()" interface="action-sheet" cancelText="ยกเลิก" [disabled]="family.status>2&&family.status<4">
+                <ion-option [value]=1>1.มีผู้ให้ข้อมูลให้ความร่วมมือ</ion-option>
+                <ion-option [value]=2>2.ผู้ให้ข้อมูล แต่ไม่ให้ความร่วมมือ</ion-option>
+                <ion-option [value]=3>3.ไม่มี/ไม่พบผู้ให้ข้อมูล</ion-option>
+                <ion-option [value]=4>4.ห้อง/บ้าน/อาคาร ว่าง/ร้าง</ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <hr id="hr-line">
+        </div>
+        <div *ngIf="sn1p2.N>1&&(sn1p2.H3.length === 1 && (sn1p2.H1_1 === 1 || sn1p2.H1_2 === 1 || sn1p2.H1_3 === 1)) || (sn1p2.H3.length > 1 && (family.H5_1 === 1 || family.H5_2 === 1 || family.H5_3 === 1))">
+          <ion-label id="bold" text-wrap>3.2 การแยกมิเตอร์น้ำประปา/น้ำบาดาล</ion-label>
+          <ion-item>
+            <label id="bold" text-wrap>1. ใช้น้ำประปาหรือไม่</label>
+          </ion-item>
+          <ion-row radio-group [(ngModel)]="family.P1" (ionChange)="validate();merge(family)">
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>ใช้</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่ใช้</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <div>
+            <ion-item>
+              <label id="bold" text-wrap>2. มีมิเตอร์น้ำประปาแยกออกจากส่วนกลางหรือไม่</label>
+            </ion-item>
+            <ion-row radio-group [(ngModel)]="family.P2" (ionChange)="validate();merge(family)">
+              <ion-col>
+                <ion-item>
+                  <ion-radio item-left [value]=true></ion-radio>
+                  <ion-label>มี</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-radio item-left [value]="false"></ion-radio>
+                  <ion-label>ไม่มี</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+          <ion-item>
+            <label id="bold" text-wrap>3. ใช้น้ำบาดาลหรือไม่</label>
+          </ion-item>
+          <ion-row radio-group [(ngModel)]="family.P3" (ionChange)="validate();merge(family)">
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>ใช้</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่ใช้</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <div>
+            <ion-item>
+              <label id="bold" text-wrap>4. มีมิเตอร์น้ำบาดาลแยกออกจากส่วนกลางหรือไม่</label>
+            </ion-item>
+            <ion-row radio-group [(ngModel)]="family.P4" (ionChange)="validate();merge(family)">
+              <ion-col>
+                <ion-item>
+                  <ion-radio item-left [value]=true></ion-radio>
+                  <ion-label>มี</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-radio item-left [value]=false></ion-radio>
+                  <ion-label>ไม่มี</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+          <hr id="hr-line">
+        </div>
+        <div *ngIf="(sn1p2.H3.length === 1 && (sn1p2.H1_1 === 1 || sn1p2.H1_2 === 1 || sn1p2.H1_3 === 1)) || (sn1p2.H3.length > 1 && (family.H5_1 === 1 || family.H5_2 === 1 || family.H5_3 === 1))">
+          <ion-label id="bold" text-wrap>3.3 กิจกรรมการใช้การน้ำ</ion-label>
+
+          <ion-item>
+            <label id="bold" text-wrap>1. เพื่อการอุปโภคบริโภค: สถานที่นี้มีผู้อยู่อาศัยติดต่อกันนานเกิน 3 เดือนใช่หรือไม่</label>
+          </ion-item>
+          <ion-row radio-group [(ngModel)]="family.G1" (ionChange)="validate()">
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-item>
+            <label id="bold" text-wrap>2. เพื่อการเกษตร: ผู้อยู่อาศัยอยู่ในสถานที่นี้มีพื้นที่ปลูกพืช เลี้ยงสัตว์ หรือทำการเกษตรเอง ใช่หรือไม่</label>
+          </ion-item>
+          <ion-row radio-group [(ngModel)]="family.G2" (ionChange)="validate()">
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-item>
+            <label id="bold" text-wrap>3. เพื่อการผลิต: สถานที่นี้ใช้เพื่อทำการผลิต ใช่หรือไม่</label>
+          </ion-item>
+          <ion-row radio-group [(ngModel)]="family.G3" (ionChange)="validate()">
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-item>
+            <label id="bold" text-wrap>4. เพื่อการบริการ: สถานที่นี้ใช้เพื่อทำการบริการ ใช่หรือไม่</label>
+          </ion-item>
+          <ion-row radio-group [(ngModel)]="family.G4" (ionChange)="validate()">
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=true></ion-radio>
+                <ion-label>ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-radio item-left [value]=false></ion-radio>
+                <ion-label>ไม่ใช่</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-item>
+            <label id="bold" text-wrap>ให้บันทึกข้อความเกี่ยวกับ ปัญหา/อุปรสรรค/การนัดหมาย/เหตุผลที่ นับจดไม่ได้ </label>
+            <ion-input [(ngModel)]="family.A11" type="text" placeholder="ปัญหา/อุปสรรค" (ionChange)="validate()"></ion-input>
+          </ion-item>
+          <button ion-button (click)="openFormSection(family)" (ionChange)="validate()">
+            เริ่มสำรวจ สน.2-1
+          </button>
+        </div>
+      </ion-grid>
+    </div>
+  </ion-list>
+  <button ion-button (click)="save()">
+    บันทึก
+  </button>
+</ion-list>

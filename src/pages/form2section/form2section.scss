@@ -1,0 +1,15 @@
+page-form2section {
+
+}
+.swiper-slide {
+    overflow-y: scroll;
+    display: block;
+}
+.no-scroll {
+    scroll-content {
+        overflow-y: hidden;
+    }
+    ::-webkit-scrollbar{
+        display:none;
+        }
+}

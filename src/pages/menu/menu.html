@@ -1,0 +1,64 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+  <ion-header>
+    <ion-navbar>
+      <ion-title style="text-align: center">MENU</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid>
+      <ion-row style="flex:0.4;padding:5px;">
+        <ion-label style="margin-left:5%;font-size:1.2em" *ngIf="countStatus&&countJob">ปฏิบัติงานเสร็จแล้ว {{countStatus}}/{{countJob}} EA</ion-label>
+        <ion-label style="margin-right:5%;font-size:1.5em" *ngIf="user">{{user.TITLE}}{{user.FIRSTNAME}} {{user.LASTNAME}}</ion-label>
+      </ion-row>
+      <ion-row>
+
+      </ion-row>
+      <ion-row style="background-color: #227ebb" (click)="navigate('download')">
+
+        <ion-item style="background-color: transparent;text-align: center">
+          <ion-icon name="md-cloud-download" color="light" style="font-size: 3em;margin-right:10px;"></ion-icon>
+          <label style="color:white;font-size: 2em">รับงาน</label>
+        </ion-item>
+      </ion-row>
+      <ion-row style="background-color: #7c9ccf" (click)="navigate('selectea')">
+        <ion-item style="background-color: transparent;text-align: center">
+          <ion-icon name="md-create" color="light" style="font-size: 3em;margin-right:10px;"></ion-icon>
+          <label style="color:white;font-size: 2em">เลือก EA</label>
+        </ion-item>
+      </ion-row>
+      <!--<ion-row style="flex:0.4;padding:5px;">
+        <ion-label style="margin-left:5%;">สื่อสาร</ion-label>
+      </ion-row>-->
+      <!--<ion-row style="background-color: #227ebb">
+        <ion-item style="background-color: transparent;text-align: center">
+          <ion-icon name="ios-chatbubbles" color="light" style="font-size: 3em;margin-right:10px;"></ion-icon>
+          <label style="color:white;font-size: 2em">ข้อความ</label>
+        </ion-item>
+      </ion-row>-->
+      <ion-row style="background-color: #7c9ccf" (click)="upload()">
+        <ion-item style="background-color: transparent;text-align: center" id="notification-button">
+          <ion-icon name="md-cloud-upload" color="light" style="font-size: 3em;margin-right:10px;">
+            <ion-badge id="notifications-badge" color="danger" *ngIf="countStatus!=0">{{countStatus}}</ion-badge>
+          </ion-icon>
+          <label style="color:white;font-size: 2em">ส่งข้อมูล</label>
+        </ion-item>
+      </ion-row>
+      <ion-row style="background-color: #227ebb" (click)="navigate('download')">
+        <ion-item style="background-color: transparent;text-align: center">
+          <ion-icon name="md-cloud-download" color="light" style="font-size: 3em;margin-right:10px;"></ion-icon>
+          <label style="color:white;font-size: 2em">ดาวน์โหลด</label>
+        </ion-item>
+      </ion-row>
+
+    </ion-grid>
+  </ion-content>
+
+
+
+

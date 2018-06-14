@@ -1,0 +1,3099 @@
+<!-- Generated template for the Form2section5.section5_1.Component component -->
+<ion-title>
+  ตอนที่ 5 การใช้น้ำ
+</ion-title>
+<hr id="hr-line">
+<ion-segment [(ngModel)]="section">
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=1 *ngIf="waterData.tapWater">
+    1
+  </ion-segment-button>
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=2 *ngIf="waterData.groundWater" [disabled]="disable2">
+    2
+  </ion-segment-button>
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=3 *ngIf="waterData.riverWater" [disabled]="disable3">
+    3
+  </ion-segment-button>
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=4 [disabled]="disable4">
+    4
+  </ion-segment-button>
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=5 *ngIf="waterData.chonWater" [disabled]="disable5">
+    5
+  </ion-segment-button>
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=6 *ngIf="waterData.rainWater" [disabled]="disable6">
+    6
+  </ion-segment-button>
+  <ion-segment-button style="font-family:Arial; font-size: 25px; background-color: #477cb2; color: black" [value]=7 *ngIf="waterData.buyWater" [disabled]="disable7">
+    7
+  </ion-segment-button>
+</ion-segment>
+<ion-list no-lines id="container" [ngSwitch]="section">
+  <ion-slides #slider>
+    <ion-slide *ngSwitchCase=1>
+      <div *ngIf="waterData.tapWater">
+        <ion-label style="font-weight: bold">5.1 น้ำประปา</ion-label>
+        <ion-label>5.1.1 น้ำประปาที่ใช้มาจากแหล่งใด</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+              แหล่งน้ำ
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+              1. น้ำประปานครหลวง
+            </ion-col>
+            <ion-col col-3>
+              1.1.ใช้หรือไม่
+            </ion-col>
+            <ion-col col-6 radio-group (ionChange)="validate5_1();test1()" [(ngModel)]="section5_1.A5_1_1_1_1">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>1. ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>2. ไม่ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_1_1" danger padding-left>กรุณาเลือกการใช้น้ำประปานครหลวง </p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_1.A5_1_1_1_1">
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-3>
+
+              1.2 มีปัญหาคุณภาพน้้าทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+            </ion-col>
+            <ion-col col-6>
+              <ion-row radio-group (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_1">
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>1. ไม่มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>2. มีปัญหา คือ</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-row *ngIf="section5_1.A5_1_1_1_2_1">
+                  <ion-item>
+                    <ion-label>2.1 ขุ่น/ตะกอน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_2_1"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.2 เค็ม/กร่อย</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_2_2"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.3 กระด้าง</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_2_3"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.4 มีกลิ่น</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_2_4"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.5 มีคราบมัน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_2_5"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.6 ฝ้าขาว</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_2_2_6"></ion-checkbox>
+                  </ion-item>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_1_2_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ </p>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_1_2_1" danger padding-left>มีปัญหาคุณภาพน้้าทางกายภาพหรือไม่ </p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_1.A5_1_1_1_1">
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-3>
+              1.3 ปริมาณน้ำประปาที่ใช้เฉลี่ยเดือนละเท่าไร
+            </ion-col>
+            <ion-col col-6>
+              <ion-row *ngIf="!section5_1.A5_1_1_1_3_2_1">
+                <ion-col>
+                  <ion-input (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_3_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>ลบ.ม./เดือน หรือ</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(section5_1.A5_1_1_1_3_1 ||notValid)&& !validateSec5_1.A5_1_1_1_3_1" danger padding-left>กรุณากรอกข้อมูลปริมาณน้ำประปาที่ใช้เฉลี่ย ให้ถูกต้อง</p>
+              <ion-row>
+                <ion-item>
+                  <ion-label>ไม่ทราบ ให้ถาม</ion-label>
+                  <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_3_2_1"></ion-checkbox>
+                </ion-item>
+              </ion-row>
+              <ion-row *ngIf="section5_1.A5_1_1_1_3_2_1">
+                <ion-col>
+                  <ion-label>ค่าน้ำ</ion-label>
+                </ion-col>
+                <ion-col>
+                  <ion-input (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_1_3_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>บาท/เดือน</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(section5_1.A5_1_1_1_3_2 || notValid) && !validateSec5_1.A5_1_1_1_3_2" danger padding-left>กรุณากรอกข้อมูลค่าน้ำ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+              2. น้ำประปาส่วนภูมิภาค
+            </ion-col>
+            <ion-col col-3>
+
+              2.1.ใช้หรือไม่
+            </ion-col>
+            <ion-col col-6 radio-group (ionChange)="validate5_1();test2()" [(ngModel)]="section5_1.A5_1_1_2_1">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>1. ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>2. ไม่ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_2_1" danger padding-left>กรุณาเลือกการใช้น้ำประปาส่วนภูมิภาค </p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_1.A5_1_1_2_1">
+            <ion-col col-3>
+              <!-- (นครหลวงกับภูมิภาคเลือกใช้ได้อันใดอันหนึ่งเท่านั้น) -->
+            </ion-col>
+            <ion-col col-3>
+
+              2.2 มีปัญหาคุณภาพน้้าทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+            </ion-col>
+            <ion-col col-6>
+              <ion-row radio-group (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_1">
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>1. ไม่มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>2. มีปัญหา คือ</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-row *ngIf="section5_1.A5_1_1_2_2_1">
+                  <ion-item>
+                    <ion-label>2.1 ขุ่น/ตะกอน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_2_1"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.2 เค็ม/กร่อย</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_2_2"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.3 กระด้าง</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_2_3"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.4 มีกลิ่น</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_2_4"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.5 มีคราบมัน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_2_5"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.6 ฝ้าขาว</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_2_2_6"></ion-checkbox>
+                  </ion-item>
+                  <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_2_2_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ</p>
+                </ion-row>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_2_2_1" danger padding-left>มีปัญหาคุณภาพน้้าทางกายภาพหรือไม่ </p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_1.A5_1_1_2_1">
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-3>
+              2.3 ในรอบปีที่ผ่านมาปริมาณน้ำประปาที่ใช้เฉลี่ยเดือนละเท่าไร
+            </ion-col>
+            <ion-col col-6>
+              <ion-row *ngIf="!section5_1.A5_1_1_2_3_2_1">
+                <ion-col>
+                  <ion-input (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_3_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>ลบ.ม./เดือน หรือ</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(section5_1.A5_1_1_2_3_1||notValid) && !validateSec5_1.A5_1_1_2_3_1" danger padding-left>กรุณากรอกข้อมูลปริมาณน้ำประปาที่ใช้เฉลี่ย ให้ถูกต้อง</p>
+              <ion-row>
+                <ion-item>
+                  <ion-label>ไม่ทราบ ให้ถาม</ion-label>
+                  <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_3_2_1"></ion-checkbox>
+                </ion-item>
+              </ion-row>
+              <ion-row *ngIf="section5_1.A5_1_1_2_3_2_1">
+                <ion-col>
+                  <ion-label>ค่าน้ำ</ion-label>
+                </ion-col>
+                <ion-col>
+                  <ion-input (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_2_3_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>บาท/เดือน</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid||section5_1.A5_1_1_2_3_2) && !validateSec5_1.A5_1_1_2_3_2" danger padding-left>กรุณากรอกข้อมูลค่าน้ำ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+              3. น้ำประปาอื่นๆ
+              <label style="font-size : 0.65em;"> (หมู่บ้าน, อบต., เทศบาล, ชุมชน, นิคม, ภูเขา, ฯลฯ)  </label>
+            </ion-col>
+            <ion-col col-3>
+
+              3.1.ใช้หรือไม่
+            </ion-col>
+            <ion-col col-6 radio-group (ionChange)="validate5_1();test3()" [(ngModel)]="section5_1.A5_1_1_3_1">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>1. ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>2. ไม่ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_3_1" danger padding-left>กรุณาเลือกการใช้น้ำประปาอื่น ๆ</p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_1.A5_1_1_3_1">
+            <ion-col col-3>
+            </ion-col>
+            <ion-col col-3>
+
+              3.2 มีปัญหาคุณภาพน้้าทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+            </ion-col>
+            <ion-col col-6>
+              <ion-row radio-group (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_1">
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>1. ไม่มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>2. มีปัญหา คือ</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-row *ngIf="section5_1.A5_1_1_3_2_1">
+                  <ion-item>
+                    <ion-label>2.1 ขุ่น/ตะกอน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_2_1"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.2 เค็ม/กร่อย</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_2_2"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.3 กระด้าง</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_2_3"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.4 มีกลิ่น</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_2_4"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.5 มีคราบมัน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_2_5"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.6 ฝ้าขาว</ion-label>
+                    <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_2_2_6"></ion-checkbox>
+                  </ion-item>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_3_2_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ </p>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_1_3_2_1" danger padding-left>มีปัญหาคุณภาพน้้าทางกายภาพหรือไม่ </p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_1.A5_1_1_3_1">
+            <ion-col col-3>
+
+            </ion-col>
+            <ion-col col-3>
+              3.3 ปริมาณน้ำประปาที่ใช้เฉลี่ยเดือนละเท่าไร
+            </ion-col>
+            <ion-col col-6>
+              <ion-row *ngIf="!section5_1.A5_1_1_3_3_2_1">
+                <ion-col>
+                  <ion-input (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_3_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>ลบ.ม./เดือน หรือ</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid||section5_1.A5_1_1_3_3_1) && !validateSec5_1.A5_1_1_3_3_1" danger padding-left>กรุณากรอกข้อมูลปริมาณน้ำประปาที่ใช้เฉลี่ย ให้ถูกต้อง</p>
+              <ion-row>
+                <ion-item>
+                  <ion-label>ไม่ทราบ ให้ถาม</ion-label>
+                  <ion-checkbox (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_3_2_1"></ion-checkbox>
+                </ion-item>
+              </ion-row>
+              <ion-row *ngIf="section5_1.A5_1_1_3_3_2_1">
+                <ion-col>
+                  <ion-label>ค่าน้ำ</ion-label>
+                </ion-col>
+                <ion-col>
+                  <ion-input (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_1_3_3_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>บาท/เดือน</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid||section5_1.A5_1_1_3_3_2) && !validateSec5_1.A5_1_1_3_3_2" danger padding-left>กรุณากรอกข้อมูลค่าน้ำ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-label *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1 || section5_1.A5_1_1_3_1">5.1.2 ใช้น้ำเพื่อทำกิจกรรมใดบ้างคิดเป็นสัดส่วนเท่าไร</ion-label>
+        <ion-grid *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1 || section5_1.A5_1_1_3_1" id="border-table">
+          <ion-row>
+            <ion-col col-4>
+              <label id="bold">กิจกรรมการใช้น้ำ</label>
+            </ion-col>
+            <ion-col col-4 *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1">
+              <label id="bold">น้ำประปาส่วนภูมิภาค/นครหลวง สัดส่วนที่ใช้ (%)</label>
+            </ion-col>
+            <ion-col col-4 *ngIf="section5_1.A5_1_1_3_1">
+              <label id="bold">น้ำประปาอื่น ๆ สัดส่วนที่ใช้ (%)</label>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G1">
+            <ion-col col-4>
+              เพื่ออุปโภคบริโภค
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_1_1" type="number"></ion-input>
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_3_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_1_2" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G_asai">
+            <ion-col col-4>
+              เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_2_1" type="number"></ion-input>
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_3_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_2_2" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G2">
+            <ion-col col-4>
+              เพื่อทำเกษตร
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_3_1" type="number"></ion-input>
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_3_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_3_2" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G3">
+            <ion-col col-4>
+              เพื่อผลิตสินค้า
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_4_1" type="number"></ion-input>
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_3_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_4_2" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G4">
+            <ion-col col-4>
+              เพื่อการบริการ
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_5_1" type="number"></ion-input>
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_3_1" col-4>
+              <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_2_5_2" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>
+              รวมทุกกิจกรรม
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1" col-4>
+              <ion-input no-padding [(ngModel)]="section5_1.A5_1_2_6_1" type="number" disabled></ion-input>
+            </ion-col>
+            <ion-col *ngIf="section5_1.A5_1_1_3_1" col-4>
+              <ion-input no-padding [(ngModel)]="section5_1.A5_1_2_6_2" type="number" disabled></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4></ion-col>
+            <ion-col col-4>
+              <div *ngIf="section5_1.A5_1_1_1_1 || section5_1.A5_1_1_2_1">
+                <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_2_6_1" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำประปานครหลวง/ภูมิภาค ให้ถูกต้อง</p>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div *ngIf="section5_1.A5_1_1_3_1">
+                <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_2_6_2" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำประปาอื่น ๆ ให้ถูกต้อง</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-label text-wrap>5.1.3 ในรอบ 12 เดือนที่ผ่านมา มีเหตุการณ์น้ำประปาไม่ไหลติดต่อกันเกิน 3 วัน หรือไม่</ion-label>
+        <ion-row radio-group (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_3">
+          <ion-col>
+            (ไม่รวมกรณีซ่อมบำรุง)
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-radio item-left [value]=true></ion-radio>
+              <ion-label>1. มี</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-radio item-left [value]=false></ion-radio>
+              <ion-label>2. ไม่มี</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && !validateSec5_1.A5_1_3" danger padding-left>กรุณาตอบคำถาม ในรอบ 12 เดือนที่ผ่านมา มีเหตุการณ์น้ำประปาไม่ไหลติดต่อกันเกิน 3 วัน หรือไม่</p>
+        <div *ngIf="section5_1.A5_1_3">
+          <ion-label>5.1.4 ถ้า “มี” เกิดเหตุการณ์ลักษณะนี้เป็นเวลากี่เดือน</ion-label>
+          <ion-input no-padding (ionChange)="validate5_1()" [(ngModel)]="section5_1.A5_1_4" type="number"></ion-input>
+          <p id="error2" *ngIf="(notValid||section5_1.A5_1_4) && !validateSec5_1.A5_1_4" danger padding-left>กรุณากรอกจำนวนเดือนให้ถูกต้อง</p>
+        </div>
+        <button ion-button (click)="save1()">ถัดไป</button>
+      </div>
+    </ion-slide>
+    <ion-slide *ngSwitchCase=2>
+      <div *ngIf="waterData.groundWater">
+        <ion-label style="font-weight: bold">5.2 น้ำบาดาล</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 text-wrap>
+              5.2.1 มีบ่อน้ำบาดาลส่วนตัวหรือไม่
+            </ion-col>
+            <ion-col col-6 radio-group (ionChange)="validate5_2()" [(ngModel)]="section5_2.A5_2_1">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>1. มี</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>2. ไม่มี</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="notValid && !validateSec5_2.A5_2_1" danger padding-left>กรุณาเลือก มีบ่อน้ำบาดาลส่วนตัวหรือไม่</p>
+          <ion-row *ngIf="section5_2.A5_2_1">
+            <ion-col col-6>
+              5.2.2 ถ้ามีบ่อน้ำบาดาลส่วนตัว มีจำนวนกี่บ่อ
+            </ion-col>
+            <ion-col col-3>
+              <ion-input (ionChange)="validate5_2()" [(ngModel)]="section5_2.A5_2_2"></ion-input>
+            </ion-col>
+            <ion-col col-3>
+              บ่อ
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="(notValid||section5_2.A5_2_2) && !validateSec5_2.A5_2_2" danger padding-left>กรุณากรอกจำนวนบ่อน้ำบาดาลที่มี ให้ถูกต้อง</p>
+          <ion-row *ngIf="section5_2.A5_2_1">
+            <ion-col col-6 text-wrap>
+              ในรอบ 12 เดือนที่ผ่านมามีบ่อน้ำบาดาลที่นำมาใช้กี่บ่อ
+            </ion-col>
+            <ion-col col-3>
+              <ion-input [(ngModel)]="section5_2.A5_2_2_1" (ionChange)="A5_2_2_1Change();validate5_2()"></ion-input>
+            </ion-col>
+            <ion-col col-3>
+              บ่อ
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="(notValid||section5_2.A5_2_2_1) && !validateSec5_2.A5_2_2_1" danger padding-left>กรุณากรอกจำนวนบ่อน้ำบาดาลที่ใช้อยู่ปัจจุบัน ให้ถูกต้อง</p>
+        </ion-grid>
+        <div *ngIf="section5_2.A5_2_1 && validateSec5_2.A5_2_2_1">
+          <div *ngFor="let w of range(1,section5_2.A5_2_2_1);">
+            บ่อที่ {{w}}
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  1) ในรอบ 1 ปีที่ผ่านมา ใช้น้ำปริมาณเท่าไรต่อเดือนโดยเฉลี่ย
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_1_2">
+                    <ion-col>
+                      <ion-input (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_1" type="number"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label>ลบ.ม./เดือน</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid||section5_2_3[w-1].A5_2_3_1) && !validateSec5_2_3[w-1].A5_2_3_1" danger padding-left>กรุณากรอกปริมาณการใช้น้ำ ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-item>
+                      <ion-label>หรือ ไม่ทราบ</ion-label>
+                      <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_1_2"></ion-checkbox>
+                    </ion-item>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="section5_2_3[w-1].A5_2_3_1_2">
+                <ion-col col-6>
+                  2) ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่
+                </ion-col>
+                <ion-col col-6 radio-group (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_2">
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=true></ion-radio>
+                        <ion-label>1. มี</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=false></ion-radio>
+                        <ion-label>2. ไม่มี</ion-label>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_2" danger padding-left>กรุณาเลือก ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่</p>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="section5_2_3[w-1].A5_2_3_1_2 && section5_2_3[w-1].A5_2_3_2">
+                <ion-col col-6>
+                  3) บ่อนี้ใช้เครื่องสูบน้ำกี่เครื่่อง
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input [(ngModel)]="section5_2_3[w-1].A5_2_3_3" type="number" (ionChange)="A5_2_3_3Change(w-1);validate5_2_3(w-1)"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label>เครื่อง</ion-label>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid ||section5_2_3[w-1].A5_2_3_3) && !validateSec5_2_3[w-1].A5_2_3_3" danger padding-left>กรุณากรอกจำนวนเครื่องสูบน้ำ ให้ถูกต้อง</p>
+              <div *ngIf="section5_2_3[w-1].A5_2_3_1_2 && section5_2_3[w-1].A5_2_3_2">
+                <div *ngFor="let y of range(1,section5_2_3[w-1].A5_2_3_3);">
+                  <ion-row>
+                    <ion-col col-6>เครื่องที่ {{y}}</ion-col>
+                    <ion-col></ion-col>
+                  </ion-row>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-6>
+                        4.1) เป็นเครื่องสูบน้ำอัตโนมัติ ใช่หรือไม่
+                      </ion-col>
+                      <ion-col col-6 radio-group (ionChange)="validate5_2_3_Pump(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                        <ion-item>
+                          <ion-radio item-left [value]=true></ion-radio>
+                          <ion-label text-wrap>1. ใช่</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-radio item-left [value]=false></ion-radio>
+                          <ion-label text-wrap>2. ไม่ใช่</ion-label>
+                        </ion-item>
+                        <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1" danger padding-left>กรุณาเลือก เครื่องสูบน้ำเครื่องนี้เป็นเครื่องสูบน้ำอัตโนมัติหรือไม่</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-col col-6>
+                        4.2) ใช้ระยะเวลาในการสูบน้ำต่อครั้งเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-col>
+                            <ion-input (ionChange)="validate5_2_3_Pump(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1" type="number"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                            <ion-label>ชม.</ion-label>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="(notValid||section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1) && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1" danger padding-left>กรุณากรอกใช้ระยะเวลาในการสูบน้ำต่อครั้ง ให้ถูกต้อง</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-col col-6>
+                        4.3) ในระยะเวลา 1 ปีสูบน้ำกี่ครั้ง
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-col>
+                            <ion-input (ionChange)="validate5_2_3_Pump(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_2" type="number"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                            <ion-label>ครั้ง</ion-label>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="(notValid||section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_2) && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_2" danger padding-left>กรุณากรอกจำนวนครั้ง ให้ถูกต้อง</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-col col-6>
+                        4.4) มีอัตราการสูบเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                          <ion-col>
+                            <ion-input (ionChange)="validate5_2_3_Pump(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3" type="number"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                            <ion-label>ลบ.ม./ชม. หรือ</ion-label>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="(notValid||section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3) && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3" danger padding-left>กรุณากรอกอัตราการสูบ ให้ถูกต้อง</p>
+                        <ion-row>
+                          <ion-item>
+                            <ion-checkbox (ionChange)="validate5_2_3_Pump(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1"></ion-checkbox>
+                            <ion-label>ไม่ทราบ</ion-label>
+                          </ion-item>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.5) เครื่องสูบน้ำที่ใช้งานอยู่ในปัจจุบัน ใช้พลังงานจากที่ใดและเป็นเครื่องสูบชนิดใด
+                      </ion-col>
+                      <ion-col col-6 radio-group (ionChange)="validate5_2_3_Pump(w-1,y-1);createPrivateBadanPumpType(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4">
+                        <ion-row>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=1></ion-radio>
+                              <ion-label>1. ใช้ไฟฟ้า</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=2></ion-radio>
+                              <ion-label>2. ใช้น้ำมันดีเซล (โซล่า)</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=3></ion-radio>
+                              <ion-label>3. ใช้น้ำมันเบนซิน</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=4></ion-radio>
+                              <ion-label>4. รถไถเดินตาม</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=5></ion-radio>
+                              <ion-label>5. แรงงานคน</ion-label>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4" danger padding-left>กรุณาเลือกแหล่งพลังงาน</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.6) เป็นเครื่องสูบน้ำชนิดใด
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4" (ionChange)="validate5_2_3_Pump(w-1,y-1);createPrivateBadanHorsePower(w-1,y-1)"
+                          [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_5" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                          <ion-option *ngFor="let pump of private_badan_pump_list[w-1][y-1]" [value]="pump"> {{pump}}</ion-option>
+                        </ion-select>
+                        <button ion-button color="secondary" (click)="showImg('badan',section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4)">ดูรูปตัวอย่าง</button>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_5" danger padding-left>กรุณาเลือกชนิดเครื่องสูบน้ำ</p>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.7) ขนาดแรงม้า / วัตต์ เท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_5" (ionChange)="validate5_2_3_Pump(w-1,y-1);createPrivateBadanPipeCon(w-1,y-1)"
+                            [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_6" placeholder="กรุณาเลือก ขนาดวัตต์ หรือ (แรงม้า)" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let horse of private_badan_horsepower_list[w-1][y-1]" [value]="horse"> {{horse}}</ion-option>
+                          </ion-select>
+                          แรงม้า / วัตต์ 
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_6" danger padding-left>กรุณากรอกขนาดแรงม้า ให้ถูกต้อง</p>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.8) ขนาดท่อดูดเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_6" (ionChange)="validate5_2_3_Pump(w-1,y-1);createPrivateBadanPipeSen(w-1,y-1)"
+                            [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_7" placeholder="กรุณาเลือกขนาดท่อดูด" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let pipe of private_badan_pipe_con_list[w-1][y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                          </ion-select>
+                          นิ้ว
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_7" danger padding-left>กรุณากรอกขนาดท่อดูด ให้ถูกต้อง</p>
+                    <ion-row *ngIf="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.9) ขนาดท่อส่งเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_7" (ionChange)="validate5_2_3_Pump(w-1,y-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_8"
+                            placeholder="กรุณาเลือกขนาดท่อส่ง" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let pipe of private_badan_pipe_sen_list[w-1][y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                          </ion-select>
+                          นิ้ว
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_3_1[y-1].A5_2_3_4_8" danger padding-left>กรุณากรอกขนาดท่อส่ง ให้ถูกต้อง</p>
+                  </ion-grid>
+                </div>
+              </div>
+              <ion-row>
+                <ion-col col-6>
+                  5) ใช้น้ำจากบ่อนี้เพื่อทำกิจกรรมใดบ้างคิดเป็นสัดส่วน เท่าไร
+                </ion-col>
+                <ion-col col-6>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6 style="text-align:right;">
+                  กิจกรรมการใช้น้ำ
+                </ion-col>
+                <ion-col col-6>
+                  สัดส่วนที่ใช้ (%)
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G1">
+                <ion-col col-6 style="text-align:right;">
+                  1.เพื่ออุปโภคบริโภค
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_1"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G_asai">
+                <ion-col col-6 style="text-align:right;">
+                  2.เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_2"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G_na">
+                <ion-col col-6 style="text-align:right;">
+                  3.เพื่อทำนา
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_3"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G2">
+                <ion-col col-6 style="text-align:right;">
+                  4.เพื่อทำเกษตร
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_4"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G3">
+                <ion-col col-6 style="text-align:right;">
+                  5.เพื่อผลิตสินค้า
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_5"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G4">
+                <ion-col col-6 style="text-align:right;">
+                  6.เพื่อการบริการ
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_6"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6 style="text-align:right;">
+                  รวมทุกกิจกรรม
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" [(ngModel)]="section5_2_3[w-1].A5_2_3_5_7" disabled></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6 style="text-align:right;"></ion-col>
+                <ion-col col-6>
+                  <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_5" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  6) มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row radio-group (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_1">
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=false></ion-radio>
+                        <ion-label>1. ไม่มีปัญหา</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=true></ion-radio>
+                        <ion-label>2. มีปัญหา คือ</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_6_1" danger padding-left>กรุณาเลือก มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่</p>
+                    <ion-row *ngIf="section5_2_3[w-1].A5_2_3_6_1">
+                      <ion-item>
+                        <ion-label>2.1 ขุ่น/ตะกอน</ion-label>
+                        <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_2_1"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.2 เค็ม/กร่อย</ion-label>
+                        <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_2_2"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.3 กระด้าง</ion-label>
+                        <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_2_3"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.4 มีกลิ่น</ion-label>
+                        <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_2_4"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.5 มีคราบมัน</ion-label>
+                        <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_2_5"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.6 ฝ้าขาว</ion-label>
+                        <ion-checkbox (ionChange)="validate5_2_3(w-1)" [(ngModel)]="section5_2_3[w-1].A5_2_3_6_2_6"></ion-checkbox>
+                      </ion-item>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3[w-1].A5_2_3_6_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ</p>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              5.2.4. ใช้น้ำจากบ่อน้ำบาดาลสาธารณะหรือไม่
+            </ion-col>
+            <ion-col col-6 radio-group (ionChange)="validate5_2()" [(ngModel)]="section5_2.A5_2_4">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>1. ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>2. ไม่ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="notValid && !validateSec5_2.A5_2_4" danger padding-left>กรุณาเลือก ใช้น้ำจากบ่อน้ำบาดาลสาธารณะหรือไม่</p>
+          <ion-row *ngIf="section5_2.A5_2_4">
+            <ion-col col-6>
+              5.2.5 ถ้าใช้น้ำจากบ่อน้ำบาดาลสาธารณะ ใช้จำนวนกี่บ่อ
+            </ion-col>
+            <ion-col col-3>
+              <ion-input (ionChange)="validate5_2()" [(ngModel)]="section5_2.A5_2_5"></ion-input>
+            </ion-col>
+            <ion-col col-3>
+              บ่อ
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="(notValid||section5_2.A5_2_5) && !validateSec5_2.A5_2_5" danger padding-left>กรุณากรอกจำนวนบ่อน้ำบาดาลที่มี ให้ถูกต้อง</p>
+          <ion-row *ngIf="section5_2.A5_2_4">
+            <ion-col col-6 text-wrap>
+              ในรอบ 12 เดือนที่ผ่านมามีบ่อน้ำบาดาลที่นำมาใช้กี่บ่อ
+            </ion-col>
+            <ion-col col-3>
+              <ion-input [(ngModel)]="section5_2.A5_2_5_1" (ionChange)="A5_2_5_1Change();validate5_2()"></ion-input>
+            </ion-col>
+            <ion-col col-3>
+              บ่อ
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="(notValid||section5_2.A5_2_5_1) && !validateSec5_2.A5_2_5_1" danger padding-left>กรุณากรอกจำนวนบ่อน้ำบาดาลที่ใช้อยู่ปัจจุบัน ให้ถูกต้อง</p>
+        </ion-grid>
+        <div *ngIf="section5_2.A5_2_4 && validateSec5_2.A5_2_5_1">
+          <div *ngFor="let w of range(1,section5_2.A5_2_5_1);">
+            บ่อที่ {{w}}
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  1) ใช้น้ำปริมาณเท่าไรต่อเดือนโดยเฉลี่ย
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_1_2">
+                    <ion-col>
+                      <ion-input (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_1" type="number"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label>ลบ.ม./เดือน</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid || section5_2_3public[w-1].A5_2_3_1) && !validateSec5_2_3Public[w-1].A5_2_3_1" danger padding-left>กรุณากรอกปริมาณการใช้น้ำ ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-item>
+                      <ion-label>หรือ ไม่ทราบ</ion-label>
+                      <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_1_2"></ion-checkbox>
+                    </ion-item>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="section5_2_3public[w-1].A5_2_3_1_2">
+                <ion-col col-6>
+                  2) ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่
+                </ion-col>
+                <ion-col col-6 radio-group (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_2">
+                  <ion-row>
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=true></ion-radio>
+                        <ion-label>1. มี</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=false></ion-radio>
+                        <ion-label>2. ไม่มี</ion-label>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_2" danger padding-left>กรุณาเลือก ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่</p>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="section5_2_3public[w-1].A5_2_3_1_2 && section5_2_3public[w-1].A5_2_3_2">
+                <ion-col col-6>
+                  3) บ่อนี้ใช้เครื่องสูบน้ำกี่เครื่่อง
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input [(ngModel)]="section5_2_3public[w-1].A5_2_3_3" type="number" (ionChange)="A5_2_6_3Change(w-1);validatePublic5_2_3(w-1)"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label>เครื่อง</ion-label>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid || section5_2_3public[w-1].A5_2_3_3)&& !validateSec5_2_3Public[w-1].A5_2_3_3" danger padding-left>กรุณากรอกจำนวนเครื่องสูบน้ำ ให้ถูกต้อง</p>
+              <div *ngIf="section5_2_3public[w-1].A5_2_3_1_2 && section5_2_3public[w-1].A5_2_3_2">
+                <div *ngFor="let y of range(1,section5_2_3public[w-1].A5_2_3_3);">
+                  <ion-row>
+                    <ion-col col-6>เครื่องที่ {{y}}</ion-col>
+                    <ion-col></ion-col>
+                  </ion-row>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-6>
+                        4.1) เป็นเครื่องสูบน้ำอัตโนมัติ ใช่หรือไม่
+                      </ion-col>
+                      <ion-col col-6 radio-group (ionChange)="validatePublicPump5_2_3(w-1,y-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                        <ion-item>
+                          <ion-radio item-left [value]=true></ion-radio>
+                          <ion-label text-wrap>1. ใช่</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-radio item-left [value]=false></ion-radio>
+                          <ion-label text-wrap>2. ไม่ใช่</ion-label>
+                        </ion-item>
+                        <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1" danger padding-left>กรุณาเลือก เครื่องสูบน้ำเครื่องนี้เป็นเครื่องสูบน้ำอัตโนมัติหรือไม่</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-col col-6>
+                        4.2) ใช้ระยะเวลาในการสูบน้ำต่อครั้งเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-col>
+                            <ion-input (ionChange)="validatePublicPump5_2_3(w-1,y-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1"
+                              type="number"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                            <ion-label>ชม.</ion-label>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="(notValid||section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1) && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1" danger padding-left>กรุณากรอกใช้ระยะเวลาในการสูบน้ำต่อครั้ง ให้ถูกต้อง</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-col col-6>
+                        4.3) ในระยะเวลา 1 ปีสูบน้ำกี่ครั้ง
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-col>
+                            <ion-input (ionChange)="validatePublicPump5_2_3(w-1,y-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_2"
+                              type="number"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                            <ion-label>ครั้ง</ion-label>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="(notValid || section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_2) && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_2" danger padding-left>กรุณากรอกจำนวนครั้ง ให้ถูกต้อง</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-col col-6>
+                        4.5) มีอัตราการสูบเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                          <ion-col>
+                            <ion-input (ionChange)="validatePublicPump5_2_3(w-1,y-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3"
+                              type="number"></ion-input>
+                          </ion-col>
+                          <ion-col>
+                            <ion-label>ลบ.ม./ชม. หรือ</ion-label>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="(notValid || section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3) && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3" danger padding-left>กรุณากรอกอัตราการสูบ ให้ถูกต้อง</p>
+                        <ion-row>
+                          <ion-item>
+                            <ion-checkbox (ionChange)="validatePublicPump5_2_3(w-1,y-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1"></ion-checkbox>
+                            <ion-label>ไม่ทราบ</ion-label>
+                          </ion-item>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.5) เครื่องสูบน้ำที่ใช้งานอยู่ในปัจจุบัน ใช้พลังงานจากแหล่งใด
+                      </ion-col>
+                      <ion-col col-6 radio-group (ionChange)="validatePublicPump5_2_3(w-1,y-1);createPublicBadanPumpType(w-1,y-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4">
+                        <ion-row>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=1></ion-radio>
+                              <ion-label>1. ใช้ไฟฟ้า</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=2></ion-radio>
+                              <ion-label>2. ใช้น้ำมันดีเซล (โซล่า)</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=3></ion-radio>
+                              <ion-label>3. ใช้น้ำมันเบนซิน</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=4></ion-radio>
+                              <ion-label>4. รถไถเดินตาม</ion-label>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col>
+                            <ion-item>
+                              <ion-radio item-left [value]=5></ion-radio>
+                              <ion-label>5. แรงงานคน</ion-label>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                        <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4" danger padding-left>กรุณาเลือกแหล่งพลังงาน</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.6) เป็นเครื่องสูบน้ำชนิดใด
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4" (ionChange)="validatePublicPump5_2_3(w-1,y-1);createPublicBadanHorsePower(w-1,y-1)"
+                          [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_5" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                          <ion-option *ngFor="let pump of public_badan_pump_list[w-1][y-1]" [value]="pump"> {{pump}}</ion-option>
+                        </ion-select>
+                        <button ion-button color="secondary" (click)="showImg('badan',section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_4)">ดูรูปตัวอย่าง</button>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_5" danger padding-left>กรุณาเลือกชนิดเครื่องสูบน้ำ</p>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.7) ขนาดแรงม้า / วัตต์ เท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_5" (ionChange)="validatePublicPump5_2_3(w-1,y-1);createPublicBadanPipeCon(w-1,y-1)"
+                            [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_6" placeholder="กรุณาเลือก ขนาดวัตต์ หรือ (แรงม้า)" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let horse of public_badan_horsepower_list[w-1][y-1]" [value]="horse"> {{horse}}</ion-option>
+                          </ion-select>
+                          แรงม้า / วัตต์
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_6" danger padding-left>กรุณากรอกขนาดแรงม้า ให้ถูกต้อง</p>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.8) ขนาดท่อดูดเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_6" (ionChange)="validatePublicPump5_2_3(w-1,y-1);createPublicBadanPipeSen(w-1,y-1)"
+                            [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_7" placeholder="กรุณาเลือกขนาดท่อดูด" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let pipe of public_badan_pipe_con_list[w-1][y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                          </ion-select>
+                          นิ้ว
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_7" danger padding-left>กรุณากรอกขนาดท่อดูด ให้ถูกต้อง</p>
+                    <ion-row *ngIf="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_1_1 && section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col col-6>
+                        4.9) ขนาดท่อส่งเท่าไร
+                      </ion-col>
+                      <ion-col col-6>
+                        <ion-row>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_7" (ionChange)="validatePublicPump5_2_3(w-1,y-1)"
+                            [(ngModel)]="section5_2_3public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_8" placeholder="กรุณาเลือกขนาดท่อส่ง" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let pipe of public_badan_pipe_sen_list[w-1][y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                          </ion-select>
+                          นิ้ว
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_3_1[y-1].A5_2_3_4_8" danger padding-left>กรุณากรอกขนาดท่อส่ง ให้ถูกต้อง</p>
+                  </ion-grid>
+                </div>
+              </div>
+              <ion-row>
+                <ion-col col-6>
+                  5) ใช้น้ำจากบ่อนี้เพื่อทำกิจกรรมใดบ้างคิดเป็นสัดส่วน เท่าไร
+                </ion-col>
+                <ion-col col-6>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6 style="text-align:right;">
+                  กิจกรรมการใช้น้ำ
+                </ion-col>
+                <ion-col col-6>
+                  สัดส่วนที่ใช้ (%)
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G1">
+                <ion-col col-6 style="text-align:right;">
+                  1.เพื่ออุปโภคบริโภค
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_1"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G_asai">
+                <ion-col col-6 style="text-align:right;">
+                  2.เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_2"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G_na">
+                <ion-col col-6 style="text-align:right;">
+                  3.เพื่อทำนา
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_3"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G2">
+                <ion-col col-6 style="text-align:right;">
+                  4.เพื่อทำเกษตร
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_4"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G3">
+                <ion-col col-6 style="text-align:right;">
+                  5.เพื่อผลิตสินค้า
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_5"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="waterData.G4">
+                <ion-col col-6 style="text-align:right;">
+                  6.เพื่อการบริการ
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_6"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6 style="text-align:right;">
+                  รวมทุกกิจกรรม
+                </ion-col>
+                <ion-col col-6>
+                  <ion-input type="number" [(ngModel)]="section5_2_3public[w-1].A5_2_3_5_7" disabled></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6 style="text-align:right;"></ion-col>
+                <ion-col col-6>
+                  <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_5" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  6) มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row radio-group (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_1">
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=false></ion-radio>
+                        <ion-label>1. ไม่มีปัญหา</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item>
+                        <ion-radio item-left [value]=true></ion-radio>
+                        <ion-label>2. มีปัญหา คือ</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_6_1" danger padding-left>กรุณาเลือก มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่</p>
+                    <ion-row *ngIf="section5_2_3public[w-1].A5_2_3_6_1">
+                      <ion-item>
+                        <ion-label>2.1 ขุ่น/ตะกอน</ion-label>
+                        <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_2_1"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.2 เค็ม/กร่อย</ion-label>
+                        <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_2_2"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.3 กระด้าง</ion-label>
+                        <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_2_3"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.4 มีกลิ่น</ion-label>
+                        <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_2_4"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.5 มีคราบมัน</ion-label>
+                        <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_2_5"></ion-checkbox>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>2.6 ฝ้าขาว</ion-label>
+                        <ion-checkbox (ionChange)="validatePublic5_2_3(w-1)" [(ngModel)]="section5_2_3public[w-1].A5_2_3_6_2_6"></ion-checkbox>
+                      </ion-item>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_2_3Public[w-1].A5_2_3_6_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ</p>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+        <button ion-button (click)="save2()">ถัดไป</button>
+      </div>
+    </ion-slide>
+    <ion-slide *ngSwitchCase=3>
+      <div *ngIf="waterData.riverWater">
+        <ion-label style="font-weight: bold">5.3 น้ำจากแม่น้ำ/ลำคลอง/แหล่งน้ำสาธารณะ</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              5.3.1 มีการนำน้ำจาก แม่น้ำ/ลำคลอง/แหล่งน้ำสาธารณะ มาใช้ปริมาณเท่าไรต่อเดือนโดยเฉลี่ย
+            </ion-col>
+            <ion-col col-6>
+              <ion-row *ngIf="!section5_3.A5_3_1_1">
+                <ion-col>
+                  <ion-input (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>ลบ.ม./เดือน</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid || section5_3.A5_3_1) && !validateSec5_3.A5_3_1" danger padding-left>กรุณากรอกปริมาณน้ำที่นำมาใช้ ให้ถูกต้อง</p>
+              <ion-row>
+                <ion-item>
+                  <ion-label>หรือ ไม่ทราบ</ion-label>
+                  <ion-checkbox (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_1_1"></ion-checkbox>
+                </ion-item>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_3.A5_3_1_1">
+            <ion-col col-6>
+              5.3.2 ใช้เครื่องสูบน้ำเพื่อสูบน้ำมาใช้หรือไม่
+            </ion-col>
+            <ion-col col-6 radio-group (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_2">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>1. ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>2. ไม่ใช้</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_2" danger padding-left>กรุณาเลือก ใช้เครื่องสูบน้ำเพื่อสูบน้ำมาใช้หรือไม่</p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_3.A5_3_2 && section5_3.A5_3_1_1">
+            <ion-col col-6>
+              5.3.3 ใช้เครื่องสูบน้ำกี่เครื่อง
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col>
+                  <ion-input [(ngModel)]="section5_3.A5_3_3" type="number" (ionChange)="A5_3_3Change();validate5_3()"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>เครื่อง</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid || section5_3.A5_3_3) && !validateSec5_3.A5_3_3" danger padding-left>กรุณากรอกจำนวนเครื่องสูบน้ำ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+          <div *ngIf="section5_3.A5_3_2 && section5_3.A5_3_1_1">
+            <div *ngFor="let y of range(1,section5_3.A5_3_3);">
+              <ion-row>
+                <ion-col col-6>เครื่องที่ {{y}}</ion-col>
+                <ion-col></ion-col>
+              </ion-row>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6 text-wrap>
+                    4.1) เป็นเครื่องสูบน้ำอัตโนมัติ ใช่หรือไม่
+                  </ion-col>
+                  <ion-col col-6 radio-group (ionChange)="validatePump5_3(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1">
+                    <ion-item>
+                      <ion-radio item-left [value]=true></ion-radio>
+                      <ion-label text-wrap>1. ใช่</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-radio item-left [value]=false></ion-radio>
+                      <ion-label text-wrap>2. ไม่ใช่</ion-label>
+                    </ion-item>
+                    <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_1_1" danger padding-left>กรุณาเลือก เครื่องสูบน้ำเครื่องนี้เป็นเครื่องสูบน้ำอัตโนมัติหรือไม่</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1">
+                  <ion-col col-6>
+                    4.2) ใช้ระยะเวลาในการสูบน้ำต่อครั้งเท่าไร
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row>
+                      <ion-col>
+                        <ion-input (ionChange)="validatePump5_3(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_1" type="number"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label>ชม.</ion-label>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="(notValid || section5_3.A5_3_3_1[y-1].A5_2_3_4_1) && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_1" danger padding-left>กรุณากรอกระยะเวลาในการสูบน้ำ ให้ถูกต้อง</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1">
+                  <ion-col col-6>
+                    4.3) ในระยะเวลา 1 ปีสูบน้ำกี่ครั้ง
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row>
+                      <ion-col>
+                        <ion-input (ionChange)="validatePump5_3(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_2" type="number"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label>ครั้ง</ion-label>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="(notValid||section5_3.A5_3_3_1[y-1].A5_2_3_4_2) && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_2" danger padding-left>กรุณากรอกจำนวนครั้ง ให้ถูกต้อง</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1">
+                  <ion-col col-6>
+                    4.4) มีอัตราการสูบเท่าไร
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1">
+                      <ion-col>
+                        <ion-input (ionChange)="validatePump5_3(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_3" type="number"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label>ลบ.ม./ชม. หรือ</ion-label>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="(notValid||section5_3.A5_3_3_1[y-1].A5_2_3_4_3) && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_3" danger padding-left>กรุณากรอกอัตราการสูบน้ำ ให้ถูกต้อง</p>
+                    <ion-row>
+                      <ion-item>
+                        <ion-checkbox (ionChange)="validatePump5_3(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1"></ion-checkbox>
+                        <ion-label>ไม่ทราบ</ion-label>
+                      </ion-item>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1 && section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1">
+                  <ion-col col-6>
+                    4.5) เครื่องสูบน้ำที่ใช้งานอยู่ในปัจจุบัน ใช้พลังงานจากแหล่งใด
+                  </ion-col>
+                  <ion-col col-6 radio-group (ionChange)="validatePump5_3(y-1);createPublicRiverPumpType(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_4">
+                    <ion-row>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=1></ion-radio>
+                          <ion-label>1. ใช้ไฟฟ้า</ion-label>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=2></ion-radio>
+                          <ion-label>2. ใช้น้ำมันดีเซล (โซล่า)</ion-label>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=3></ion-radio>
+                          <ion-label>3. ใช้น้ำมันเบนซิน</ion-label>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=4></ion-radio>
+                          <ion-label>4. รถไถเดินตาม</ion-label>
+                        </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_4" danger padding-left>กรุณาเลือกแหล่งพลังงานที่ใช้</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1 && section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1">
+                  <ion-col col-6>
+                    4.6) เป็นเครื่องสูบน้ำชนิดใด
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_3.A5_3_3_1[y-1].A5_2_3_4_4" (ionChange)="validatePump5_3(y-1);createPublicRiverHorsePower(y-1)"
+                      [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_5" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                      <ion-option *ngFor="let pump of public_river_pump_list[y-1]" [value]="pump"> {{pump}}</ion-option>
+                    </ion-select>
+                    <button ion-button color="secondary" (click)="showImg('din',section5_3.A5_3_3_1[y-1].A5_2_3_4_4)">ดูรูปตัวอย่าง</button>
+                  </ion-col>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_5" danger padding-left>กรุณาเลือกชนิดเครื่องสูบน้ำ</p>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1 && section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1">
+                  <ion-col col-6 text-wrap>
+                    4.7) ขนาดแรงม้า / วัตต์ เท่าไร
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row>
+                      <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_3.A5_3_3_1[y-1].A5_2_3_4_5" (ionChange)="validatePump5_3(y-1);createPublicRiverPipeCon(y-1)"
+                        [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_6" placeholder="กรุณาเลือก ขนาดวัตต์ หรือ (แรงม้า)" style="max-width: 100% !important;">
+                        <ion-option *ngFor="let horse of public_river_horsepower_list[y-1]" [value]="horse"> {{horse}}</ion-option>
+                      </ion-select>
+                      แรงม้า / วัตต์
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_6" danger padding-left>กรุณากรอกขนาดแรงม้า ให้ถูกต้อง</p>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1 && section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1">
+                  <ion-col col-6>
+                    4.8) ขนาดท่อดูดเท่าไร
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row>
+                      <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_3.A5_3_3_1[y-1].A5_2_3_4_6" (ionChange)="validatePump5_3(y-1); createPublicRiverPipeSen(y-1)"
+                        [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_7" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                        <ion-option *ngFor="let pipe of public_river_pipe_con_list[y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                      </ion-select>
+                      นิ้ว
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_7" danger padding-left>กรุณากรอกขนาดท่อดูด ให้ถูกต้อง</p>
+                <ion-row *ngIf="!section5_3.A5_3_3_1[y-1].A5_2_3_4_1_1 && section5_3.A5_3_3_1[y-1].A5_2_3_4_3_1">
+                  <ion-col col-6>
+                    4.9) ขนาดท่อส่งเท่าไร
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row>
+                      <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_3.A5_3_3_1[y-1].A5_2_3_4_7" (ionChange)="validatePump5_3(y-1)" [(ngModel)]="section5_3.A5_3_3_1[y-1].A5_2_3_4_8"
+                        placeholder="กรุณาเลือกขนาดท่อส่ง" style="max-width: 100% !important;">
+                        <ion-option *ngFor="let pipe of public_river_pipe_sen_list[y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                      </ion-select>
+                      นิ้ว
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_3_1[y-1].A5_2_3_4_8" danger padding-left>กรุณากรอกขนาดท่อส่ง ให้ถูกต้อง</p>
+              </ion-grid>
+            </div>
+          </div>
+          <ion-row>
+            <ion-col col-6>
+              5.3.4 ใช้น้ำจากแม่น้ำ/ลำคลอง/แหล่งน้ำสาธารณะ เพื่อทำกิจกรรมใดบ้างคิดเป็นสัดส่วนเท่าไร
+            </ion-col>
+            <ion-col col-6>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 style="text-align:right;">
+              กิจกรรมการใช้น้ำ
+            </ion-col>
+            <ion-col col-6>
+              สัดส่วนที่ใช้ (%)
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G1">
+            <ion-col col-6 style="text-align:right;">
+              1.เพื่ออุปโภคบริโภค
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_4_1"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G_asai">
+            <ion-col col-6 style="text-align:right;">
+              2.เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_4_2"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G_na">
+            <ion-col col-6 style="text-align:right;">
+              3.เพื่อทำนา
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_4_3"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G2">
+            <ion-col col-6 style="text-align:right;">
+              4.เพื่อทำเกษตร
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_4_4"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G3">
+            <ion-col col-6 style="text-align:right;">
+              5.เพื่อผลิตสินค้า
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_4_5"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G4">
+            <ion-col col-6 style="text-align:right;">
+              6.เพื่อการบริการ
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_4_6"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 style="text-align:right;">
+              รวมทุกกิจกรรม
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" [(ngModel)]="section5_3.A5_3_4_7" disabled></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 style="text-align:right;"> </ion-col>
+            <ion-col col-6>
+              <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_4" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              5.3.5 มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+            </ion-col>
+            <ion-col col-6>
+              <ion-row radio-group (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_5_1">
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>1. ไม่มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>2. มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_5_1" danger padding-left>กรุณาตอบคำถาม มีปัญหาคุณภาพน้ำทางกายภาพหรือไม่</p>
+              </ion-row>
+              <ion-row *ngIf="section5_3.A5_3_5_1">
+                <ion-item>
+                  <ion-label>2.1 เค็ม/กร่อย</ion-label>
+                  <ion-checkbox (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_5_2_1"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>2.2 มีกลิ่น</ion-label>
+                  <ion-checkbox (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_5_2_2"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>2.3 มีคราบมัน</ion-label>
+                  <ion-checkbox (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_5_2_3"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>2.4 ฝ้าขาว</ion-label>
+                  <ion-checkbox (ionChange)="validate5_3()" [(ngModel)]="section5_3.A5_3_5_2_4"></ion-checkbox>
+                </ion-item>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_3.A5_3_5_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button (click)="save3()">ถัดไป</button>
+      </div>
+    </ion-slide>
+    <ion-slide *ngSwitchCase=4>
+      <div>
+        <ion-label style="font-weight: bold">5.4 น้ำจากสระน้ำ/หนองน้ำ/บึง</ion-label>
+        <ion-label style="font-weight: bold" text-wrap>(หนองน้ำ บึง สระน้ำส่วนตัว ที่อยู่ในไร่นา พื้นที่อยู่อาศัย สถานประกอบการ)</ion-label>
+        <ion-label text-wrap>5.4.1 ในพื้นที่อยู่อาศัย สวน ไร่ นา สถานประกอบการมีสระน้ำ หนองน้ำ บึง หรือไม่</ion-label>
+        <ion-row radio-group (ionChange)="validate5_4()" [(ngModel)]="section5_4.A5_4_1" [disabled]="disable">
+          <ion-col>
+            <ion-item>
+              <ion-radio item-left [value]=true></ion-radio>
+              <ion-label>1. มี</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-radio item-left [value]=false></ion-radio>
+              <ion-label>2. ไม่มี</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_1" danger padding-left>กรุณาเลือกตอบ ในพื้นที่อยู่อาศัย สวน ไร่ นา สถานประกอบการมีสระน้ำ หนองน้ำ บึง หรือไม่</p>
+        <ion-grid *ngIf="section5_4.A5_4_1">
+          <ion-row>
+            <ion-col col-6>
+              <ion-label>5.4.2 หาก "มี" มีจำนวนกี่สระ</ion-label>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-input [(ngModel)]="section5_4.A5_4_2" type="number" (ionChange)="A5_4_3_1Change();validate5_4()"></ion-input>
+                </ion-col>
+                <ion-col col-6>
+                  สระ
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid||section5_4.A5_4_2) && !validateSec5_4.A5_4_2" danger padding-left>กรุณากรอกจำนวนสระ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="section5_4.A5_4_2 != 1">
+            <ion-col col-6>
+              <ion-label text-wrap>5.4.3 ขนาดสระน้ำทั้งหมดเท่ากันหรือไม่</ion-label>
+            </ion-col>
+            <ion-col col-6 radio-group [(ngModel)]="section5_4.A5_4_3" (ionChange)="A5_4_3_1Change();validate5_4()">
+              <ion-row>
+                <ion-item>
+                  <ion-radio item-left [value]=true></ion-radio>
+                  <ion-label>1. เท่ากัน</ion-label>
+                </ion-item>
+              </ion-row>
+              <ion-row>
+                <ion-item>
+                  <ion-radio item-left [value]=false></ion-radio>
+                  <ion-label>2. ไม่เท่ากัน</ion-label>
+                </ion-item>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_3" danger padding-left>กรุณาเลือก ขนาดสระน้ำทั้งหมดเท่ากันหรือไม่</p>
+            </ion-col>
+          </ion-row>
+          <div *ngFor="let w of range(1,section5_4.A5_4_3_1.length);">
+            <ion-grid radio-group (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_0">
+              <ion-row>สระที่ {{w}} (ถามขนาดของสระ)</ion-row>
+              <ion-row>
+                <ion-col col-4>
+                  <ion-item>
+                    <ion-radio item-left [value]=1></ion-radio>
+                    <ion-label text-wrap>1) ปริมาตรเท่าไร</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-8>
+                  <ion-row *ngIf="validateSec5_4.A5_4_3 && section5_4.A5_4_3_1[w-1].A5_4_3_0 === 1">
+                    <ion-col col-4>
+                      <ion-item>
+                        <ion-label text-wrap>1) ปริมาตร</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_1"></ion-input>
+                    </ion-col>
+                    <ion-col col-4>
+                      ลูกบาศก์เมตร
+                    </ion-col>
+                  </ion-row>
+                  <ion-row *ngIf=" section5_4.A5_4_3_1[w-1].A5_4_3_0 === 1">
+                    <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_1) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_1" danger padding-left>กรุณากรอก ปริมาตรสระให้ถูกต้อง</p>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-5>
+                  <ion-item>
+                    <ion-radio item-left [value]=2></ion-radio>
+                    <ion-label text-wrap>2) หากไม่ทราบ ทราบพื้นที่หรือไม่ กี่ไร่ ความลึกของสระกี่เมตร</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-7 *ngIf="section5_4.A5_4_3_1[w-1].A5_4_3_0 === 2">
+                  <ion-row>
+                    <ion-col col-4>
+                      <ion-label text-wrap class="small-label">2. พื้นที่</ion-label>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_2_1"></ion-input>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-label text-wrap class="small-label">ไร่</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid || section5_4.A5_4_3_1[w-1].A5_4_3_2_1) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_2_1" danger padding-left>กรุณากรอก จำนวนไร่ ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-col col-3>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_2_2"></ion-input>
+                    </ion-col>
+                    <ion-col col-2>
+                      <ion-label text-wrap class="small-label">งาน</ion-label>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_2_3"></ion-input>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-label text-wrap class="small-label"> ตารางวา</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_2_2) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_2_2" danger padding-left>กรุณากรอก จำนวนงาน ให้ถูกต้อง</p>
+                  <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_2_3) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_2_3" danger padding-left>กรุณากรอก จำนวนตารางวา ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-col col-3>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">
+                        ความลึก
+                      </ion-label>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap>
+                        <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_2_4"></ion-input>
+                      </ion-label>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">
+                        เมตร
+                      </ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_2_4) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_2_4" danger padding-left>กรุณากรอก ความลึก ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-label text-wrap>3) หากไม่ทราบพื้นที่ สระเป็นสี่เหลี่ยมหรือวงกลม</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item>
+                    <ion-radio item-left [value]=3></ion-radio>
+                    <ion-label text-wrap>3.1) ถ้าสระเป็นสี่เหลี่ยม ยาว กว้าง ลึกเท่าไร</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6 *ngIf="section5_4.A5_4_3_1[w-1].A5_4_3_0 === 3">
+                  <ion-row>
+                    <ion-col col-5>
+                      <ion-label text-wrap class="small-label">3. ความกว้าง</ion-label>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_3_1_1"></ion-input>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">เมตร</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_3_1_1) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_3_1_1" danger padding-left>กรุณากรอก ความกว้าง ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-col col-5>
+                      <ion-label text-wrap class="small-label">ยาว</ion-label>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_3_1_2"></ion-input>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">เมตร</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_3_1_2) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_3_1_2" danger padding-left>กรุณากรอก ความยาว ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-col col-5>
+                      <ion-label text-wrap class="small-label">ความลึก</ion-label>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_3_1_3"></ion-input>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">เมตร</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid||section5_4.A5_4_3_1[w-1].A5_4_3_3_1_3) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_3_1_3" danger padding-left>กรุณากรอก ความลึก ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-7>
+                  <ion-item>
+                    <ion-radio item-left [value]=4></ion-radio>
+                    <ion-label text-wrap>3.2) ถ้าสระเป็นวงกลม เส้นผ่านศูนย์กลางกี่เมตร</ion-label>
+                    <ion-label>ลึกเท่าไร</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-5 *ngIf="section5_4.A5_4_3_1[w-1].A5_4_3_0 === 4">
+                  <ion-row>
+                    <ion-col col-5>
+                      <ion-label text-wrap class="small-label">4. เส้นผ่านศูนย์กลาง</ion-label>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_3_2_1"></ion-input>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">เมตร</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid ||section5_4.A5_4_3_1[w-1].A5_4_3_3_2_1)&& !validateSec5_4.A5_4_3_1[w-1].A5_4_3_3_2_1" danger padding-left>กรุณากรอก เส้นผ่านศูนย์กลาง ให้ถูกต้อง</p>
+                  <ion-row>
+                    <ion-col col-5>
+                      <ion-label text-wrap class="small-label">ความลึก</ion-label>
+                    </ion-col>
+                    <ion-col col-4>
+                      <ion-input type="number" (ionChange)="validate5_4_3(w-1)" [(ngModel)]="section5_4.A5_4_3_1[w-1].A5_4_3_3_2_2"></ion-input>
+                    </ion-col>
+                    <ion-col col-3>
+                      <ion-label text-wrap class="small-label">เมตร</ion-label>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="(notValid || section5_4.A5_4_3_1[w-1].A5_4_3_3_2_2) && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_3_2_2" danger padding-left>กรุณากรอก ความลึก ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_3_1[w-1].A5_4_3_0" danger padding-left>กรุณาเลือกขนาดสระ</p>
+            </ion-grid>
+          </div>
+        </ion-grid>
+        <ion-grid *ngIf="section5_4.A5_4_1 && section5_4.A5_4_2 ">
+          <ion-row>
+            <ion-col col-6>
+              5.4.4 ในรอบ 12เดือนที่ผ่านมามีกี่สระ <label id="bold">ที่นำน้ำมาใช้</label>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col>
+                  <ion-input [(ngModel)]="section5_4.A5_4_4" (ionChange)="A5_4_4Change();validate5_4()" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>สระ</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid || section5_4.A5_4_4) && !validateSec5_4.A5_4_4" danger padding-left>กรุณากรอก จำนวนสระที่นำน้ำมาใช้ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngIf="section5_4.A5_4_1">
+          <div *ngFor="let w of range(1,section5_4.A5_4_4);">
+            <div *ngIf="section5_4.A5_4_4 <= section5_4.A5_4_2">สระที่ {{w}}
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6>
+                    1) มีการนำน้ำออกจากสระมาใช้ปริมาณเท่าไรต่อ เดือนโดยเฉลี่ย
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_1_2">
+                      <ion-col>
+                        <ion-input (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_1" type="number"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label>ลบ.ม./เดือน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="(notValid||section5_4.A5_4_4_1[w-1].A5_4_4_1) && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_1" danger padding-left>กรุณากรอก ปริมาณน้ำที่นำมาใช้ต่อเดือน ให้ถูกต้อง</p>
+                    <ion-row>
+                      <ion-item>
+                        <ion-label>หรือ ไม่ทราบ</ion-label>
+                        <ion-checkbox (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_1_2"></ion-checkbox>
+                      </ion-item>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="section5_4.A5_4_4_1[w-1].A5_4_4_1_2">
+                  <ion-col col-6>
+                    2) ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่
+                  </ion-col>
+                  <ion-col col-6 radio-group (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_2">
+                    <ion-row>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=true></ion-radio>
+                          <ion-label>1. ใช้</ion-label>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=false></ion-radio>
+                          <ion-label>2. ไม่ใช้</ion-label>
+                        </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_2" danger padding-left>กรุณาเลือกตอบ ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่ </p>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="section5_4.A5_4_4_1[w-1].A5_4_4_2">
+                  <ion-col col-6>
+                    3) บ่อนี้ใช้เครื่องสูบน้ำกี่เครื่่อง
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row>
+                      <ion-col>
+                        <ion-input [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_3" type="number" (ionChange)=" A5_4_4_3(w-1);validate5_4_4(w-1)"></ion-input>
+                      </ion-col>
+                      <ion-col>
+                        <ion-label>เครื่อง</ion-label>
+                      </ion-col>
+                    </ion-row>
+                    <p id="error2" *ngIf="(notValid|| section5_4.A5_4_4_1[w-1].A5_4_4_3)&& !validateSec5_4.A5_4_4_1[w-1].A5_4_4_3" danger padding-left>กรุณากรอกจำนวนเครื่องสูบน้ำ ให้ถูกต้อง </p>
+                  </ion-col>
+                </ion-row>
+                <div *ngIf="section5_4.A5_4_4_1[w-1].A5_4_4_2">
+                  <div *ngFor="let y of range(1,section5_4.A5_4_4_1[w-1].A5_4_4_4.length);">
+                    <ion-row>
+                      <ion-col col-6>4) เครื่องที่ {{y}}</ion-col>
+                      <ion-col></ion-col>
+                    </ion-row>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-6>
+                          4.1) เป็นเครื่องสูบน้ำอัตโนมัติ ใช่หรือไม่
+                        </ion-col>
+                        <ion-col col-6 radio-group (ionChange)="validatePump5_4_4(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1">
+                          <ion-item>
+                            <ion-radio item-left [value]=true></ion-radio>
+                            <ion-label text-wrap>1. ใช่</ion-label>
+                          </ion-item>
+                          <ion-item>
+                            <ion-radio item-left [value]=false></ion-radio>
+                            <ion-label text-wrap>2. ไม่ใช่</ion-label>
+                          </ion-item>
+                          <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1" danger padding-left>กรุณาเลือก เครื่องสูบน้ำเครื่องนี้เป็นเครื่องสูบน้ำอัตโนมัติหรือไม่</p>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1">
+                        <ion-col col-6>
+                          4.2) ใช้ระยะเวลาในการสูบน้ำต่อครั้งเท่าไร
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-row>
+                            <ion-col>
+                              <ion-input (ionChange)="validatePump5_4_4(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1" type="number"></ion-input>
+                            </ion-col>
+                            <ion-col>
+                              <ion-label>ชม.</ion-label>
+                            </ion-col>
+                          </ion-row>
+                          <p id="error2" *ngIf="(notValid || section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1) && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1" danger padding-left>กรุณากรอกระยะเวลาในการสูบน้ำ ให้ถูกต้อง </p>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1">
+                        <ion-col col-6>
+                          4.3) ในระยะเวลา 1 ปีสูบน้ำกี่ครั้ง
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-row>
+                            <ion-col>
+                              <ion-input (ionChange)="validatePump5_4_4(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_2" type="number"></ion-input>
+                            </ion-col>
+                            <ion-col>
+                              <ion-label>ครั้ง</ion-label>
+                            </ion-col>
+                          </ion-row>
+                          <p id="error2" *ngIf="(notValid || section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_2) && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_2" danger padding-left>กรุณากรอกจำนวนครั้ง ให้ถูกต้อง </p>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1">
+                        <ion-col col-6>
+                          4.4) มีอัตราการสูบเท่าไร
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1">
+                            <ion-col>
+                              <ion-input (ionChange)="validatePump5_4_4(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3" type="number"></ion-input>
+                            </ion-col>
+                            <ion-col>
+                              <ion-label>ลบ.ม./ชม. หรือ</ion-label>
+                            </ion-col>
+                          </ion-row>
+                          <p id="error2" *ngIf="(notValid || section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3) && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3" danger padding-left>กรุณากรอกอัตราการสูบน้ำ ให้ถูกต้อง </p>
+                          <ion-row>
+                            <ion-item>
+                              <ion-checkbox (ionChange)="validatePump5_4_4(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1"></ion-checkbox>
+                              <ion-label>ไม่ทราบ</ion-label>
+                            </ion-item>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1 && section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1">
+                        <ion-col col-6>
+                          4.5) เครื่องสูบน้ำที่ใช้งานอยู่ในปัจจุบัน ใช้พลังงานจากแหล่งใด
+                        </ion-col>
+                        <ion-col col-6 radio-group (ionChange)="validatePump5_4_4(w-1,y-1);createPoolPumpType(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_4">
+                          <ion-row>
+                            <ion-col>
+                              <ion-item>
+                                <ion-radio item-left [value]=1></ion-radio>
+                                <ion-label>1. ใช้ไฟฟ้า</ion-label>
+                              </ion-item>
+                            </ion-col>
+                            <ion-col>
+                              <ion-item>
+                                <ion-radio item-left [value]=2></ion-radio>
+                                <ion-label>2. ใช้น้ำมันดีเซล (โซล่า)</ion-label>
+                              </ion-item>
+                            </ion-col>
+                            <ion-col>
+                              <ion-item>
+                                <ion-radio item-left [value]=3></ion-radio>
+                                <ion-label>3. ใช้น้ำมันเบนซิน</ion-label>
+                              </ion-item>
+                            </ion-col>
+                            <ion-col>
+                              <ion-item>
+                                <ion-radio item-left [value]=4></ion-radio>
+                                <ion-label>4. รถไถเดินตาม</ion-label>
+                              </ion-item>
+                            </ion-col>
+                          </ion-row>
+                          <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_4" danger padding-left>กรุณาเลือกแหล่งพลังงานที่ใช้</p>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1 && section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1">
+                        <ion-col col-6>
+                          4.6) เป็นเครื่องสูบน้ำชนิดใด
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_4" (ionChange)="validatePump5_4_4(w-1,y-1);createPoolHorsePower(w-1,y-1)"
+                            [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_5" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                            <ion-option *ngFor="let pump of pool_pump_list[w-1][y-1]" [value]="pump"> {{pump}}</ion-option>
+                          </ion-select>
+                          <button ion-button color="secondary" (click)="showImg('din',section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_4)">ดูรูปตัวอย่าง</button>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_5" danger padding-left>กรุณาเลือกชนิดเครื่องสูบน้ำ</p>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1 && section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1">
+                        <ion-col col-6 text-wrap>
+                          4.7) ขนาดแรงม้า / วัตต์ เท่าไร
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-row>
+                            <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_5" (ionChange)="validatePump5_4_4(w-1,y-1);createPoolPipeCon(w-1,y-1)"
+                              [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_6" placeholder="กรุณาเลือก ขนาดวัตต์ หรือ (แรงม้า)" style="max-width: 100% !important;">
+                              <ion-option *ngFor="let horse of pool_horsepower_list[w-1][y-1]" [value]="horse"> {{horse}}</ion-option>
+                            </ion-select>
+                            แรงม้า / วัตต์
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_6" danger padding-left>กรุณากรอกขนาดแรงม้า ให้ถูกต้อง</p>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1 && section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1">
+                        <ion-col col-6>
+                          4.8) ขนาดท่อดูดเท่าไร
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-row>
+                            <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_6" (ionChange)="validatePump5_4_4(w-1,y-1); createPoolPipeSen(w-1,y-1)"
+                              [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_7" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                              <ion-option *ngFor="let pipe of pool_pipe_con_list[w-1][y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                            </ion-select>
+                            นิ้ว
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_7" danger padding-left>กรุณากรอกขนาดท่อดูด ให้ถูกต้อง</p>
+                      <ion-row *ngIf="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_1_1 && section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_3_1">
+                        <ion-col col-6>
+                          4.9) ขนาดท่อส่งเท่าไร
+                        </ion-col>
+                        <ion-col col-6>
+                          <ion-row>
+                            <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_7" (ionChange)="validatePump5_4_4(w-1,y-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_8"
+                              placeholder="กรุณาเลือกขนาดท่อส่ง" style="max-width: 100% !important;">
+                              <ion-option *ngFor="let pipe of pool_pipe_sen_list[w-1][y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                            </ion-select>
+                            นิ้ว
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_4[y-1].A5_2_3_4_8" danger padding-left>กรุณากรอกขนาดท่อส่ง ให้ถูกต้อง</p>
+                    </ion-grid>
+                  </div>
+                </div>
+                <ion-row>
+                  <ion-col col-6>
+                    5) ใช้น้ำจากบ่อนี้เพื่อทำกิจกรรมใดบ้างคิดเป็นสัดส่วน เท่าไร
+                  </ion-col>
+                  <ion-col col-6>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-6 style="text-align:right;">
+                    กิจกรรมการใช้น้ำ
+                  </ion-col>
+                  <ion-col col-6>
+                    สัดส่วนที่ใช้ (%)
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="waterData.G1">
+                  <ion-col col-6 style="text-align:right;">
+                    1.เพื่ออุปโภคบริโภค
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_1"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="waterData.G_asai">
+                  <ion-col col-6 style="text-align:right;">
+                    2.เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_2"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="waterData.G_na">
+                  <ion-col col-6 style="text-align:right;">
+                    3.เพื่อทำนา
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_3"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="waterData.G2">
+                  <ion-col col-6 style="text-align:right;">
+                    4.เพื่อทำเกษตร
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_4"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="waterData.G3">
+                  <ion-col col-6 style="text-align:right;">
+                    5.เพื่อผลิตสินค้า
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_5"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="waterData.G4">
+                  <ion-col col-6 style="text-align:right;">
+                    6.เพื่อการบริการ
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_6"></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-6 style="text-align:right;">
+                    รวมทุกกิจกรรม
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-input type="number" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_5_7" disabled></ion-input>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-6 style="text-align:right;">
+                  </ion-col>
+                  <ion-col col-6>
+                    <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_5" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำ ให้ถูกต้อง</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-6>
+                    6) มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-row radio-group (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_6_1">
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=false></ion-radio>
+                          <ion-label>1. ไม่มีปัญหา</ion-label>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col>
+                        <ion-item>
+                          <ion-radio item-left [value]=true></ion-radio>
+                          <ion-label>2. มีปัญหา</ion-label>
+                        </ion-item>
+                      </ion-col>
+                      <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_6_1" danger padding-left>กรุณาเลือกตอบ มีปัญหาคุณภาพน้ำทางกายภาพหรือไม่</p>
+                      <ion-row *ngIf="section5_4.A5_4_4_1[w-1].A5_4_4_6_1">
+                        <ion-item>
+                          <ion-label>2.1 เค็ม/กร่อย</ion-label>
+                          <ion-checkbox (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_6_2_1"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>2.2 มีกลิ่น</ion-label>
+                          <ion-checkbox (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_6_2_2"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>2.3 มีคราบมัน</ion-label>
+                          <ion-checkbox (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_6_2_3"></ion-checkbox>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>2.4 ฝ้าขาว</ion-label>
+                          <ion-checkbox (ionChange)="validate5_4_4(w-1)" [(ngModel)]="section5_4.A5_4_4_1[w-1].A5_4_4_6_2_4"></ion-checkbox>
+                        </ion-item>
+                      </ion-row>
+                    </ion-row>
+                    <p id="error2" *ngIf="notValid && !validateSec5_4.A5_4_4_1[w-1].A5_4_4_6_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </div>
+        </div>
+        <button ion-button (click)="save4()">ถัดไป</button>
+      </div> 
+    </ion-slide>
+    <ion-slide *ngSwitchCase=5>
+      <div *ngIf="waterData.chonWater">
+        <ion-label style="font-weight: bold">5.5 น้ำจากชลประทาน</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              5.5.1 มีการนำน้ำจากชลประทานมาใช้ปริมาณเท่าไรต่อเดือนโดยเฉลี่ย
+            </ion-col>
+            <ion-col col-6>
+              <ion-row *ngIf="!section5_5.A5_5_1_1">
+                <ion-col>
+                  <ion-input (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label>ลบ.ม./เดือน</ion-label>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="(notValid||section5_5.A5_5_1) && !validateSec5_5.A5_5_1" danger padding-left>กรุณากรอกปริมาณการใช้น้ำ ให้ถูกต้อง</p>
+              <ion-row>
+                <ion-item>
+                  <ion-label>หรือ ไม่ทราบ</ion-label>
+                  <ion-checkbox (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_1_1"></ion-checkbox>
+                </ion-item>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <div *ngIf="section5_5.A5_5_1_1">
+            <ion-row>
+              <ion-col col-6>
+                5.5.2 ใช้เครื่องสูบน้ำเพื่อสูบน้ำมาใช้หรือไม่
+              </ion-col>
+              <ion-col col-6 radio-group (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_2">
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-radio item-left [value]=true></ion-radio>
+                      <ion-label>1. ใช้</ion-label>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-radio item-left [value]=false></ion-radio>
+                      <ion-label>2. ไม่ใช้</ion-label>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_2" danger padding-left>กรุณาเลือกตอบ ใช้เครื่องสูบน้ำเพื่อสูบน้ำหรือไม่</p>
+              </ion-col>
+            </ion-row>
+            <div *ngIf="section5_5.A5_5_2">
+              <ion-row *ngIf="section5_5.A5_5_2">
+                <ion-col col-6>
+                  5.3.3 ใช้เครื่องสูบน้ำกี่เครื่อง
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row>
+                    <ion-col>
+                      <ion-input [(ngModel)]="section5_5.A5_5_3" type="number" (ionChange)="A5_5_3Change();validate5_5()"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label>เครื่อง</ion-label>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="section5_5.A5_5_2">
+                <ion-col col-6></ion-col>
+                <ion-col col-6>
+                  <p id="error2" *ngIf="(notValid||section5_5.A5_5_3) && !validateSec5_5.A5_5_3" danger padding-left>กรุณากรอกจำนวนเครื่องสูบน้ำ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+              <div *ngFor="let y of range(1,section5_5.A5_5_3);">
+                <ion-row>
+                  <ion-col col-6>เครื่องที่ {{y}}</ion-col>
+                  <ion-col></ion-col>
+                </ion-row>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-6>
+                      1) เป็นเครื่องสูบน้ำอัตโนมัติ ใช่หรือไม่
+                    </ion-col>
+                    <ion-col col-6 radio-group (ionChange)="validatePump5_5(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1">
+                      <ion-item>
+                        <ion-radio item-left [value]=true></ion-radio>
+                        <ion-label text-wrap>1. ใช่</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-radio item-left [value]=false></ion-radio>
+                        <ion-label text-wrap>2. ไม่ใช่</ion-label>
+                      </ion-item>
+                      <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_1_1" danger padding-left>กรุณาเลือก เครื่องสูบน้ำเครื่องนี้เป็นเครื่องสูบน้ำอัตโนมัติหรือไม่</p>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1">
+                    <ion-col col-6>
+                      2) ใช้ระยะเวลาในการสูบน้ำต่อครั้งเท่าไร
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-row>
+                        <ion-col>
+                          <ion-input (ionChange)="validatePump5_5(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_1" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label>ชม.</ion-label>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="(notValid||section5_5.A5_5_3_1[y-1].A5_2_3_4_1) && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_1" danger padding-left>กรุณากรอกระยะเวลาในการสูบน้ำ ให้ถูกต้อง</p>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1">
+                    <ion-col col-6>
+                      3) ในระยะเวลา 1 ปีสูบน้ำกี่ครั้ง
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-row>
+                        <ion-col>
+                          <ion-input (ionChange)="validatePump5_5(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_2" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label>ครั้ง</ion-label>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="(notValid||section5_5.A5_5_3_1[y-1].A5_2_3_4_2) && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_2" danger padding-left>กรุณากรอกจำนวนครั้ง ให้ถูกต้อง</p>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1">
+                    <ion-col col-6>
+                      4) มีอัตราการสูบเท่าไร
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1">
+                        <ion-col>
+                          <ion-input (ionChange)="validatePump5_5(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_3" type="number"></ion-input>
+                        </ion-col>
+                        <ion-col>
+                          <ion-label>ลบ.ม./ชม. หรือ</ion-label>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="(notValid || section5_5.A5_5_3_1[y-1].A5_2_3_4_3)  && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_3" danger padding-left>กรุณากรอกอัตราการสูบน้ำ ให้ถูกต้อง</p>
+                      <ion-row>
+                        <ion-item>
+                          <ion-checkbox (ionChange)="validatePump5_5(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1"></ion-checkbox>
+                          <ion-label>ไม่ทราบ</ion-label>
+                        </ion-item>
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1 && section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1">
+                    <ion-col col-6>
+                      5) เครื่องสูบน้ำที่ใช้งานอยู่ในปัจจุบัน ใช้พลังงานจากแหล่งใด
+                    </ion-col>
+                    <ion-col col-6 radio-group (ionChange)="validatePump5_5(y-1);createChonPumpType(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_4">
+                      <ion-row>
+                        <ion-col>
+                          <ion-item>
+                            <ion-radio item-left [value]=1></ion-radio>
+                            <ion-label>1. ใช้ไฟฟ้า</ion-label>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col>
+                          <ion-item>
+                            <ion-radio item-left [value]=2></ion-radio>
+                            <ion-label>2. ใช้น้ำมันดีเซล (โซล่า)</ion-label>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col>
+                          <ion-item>
+                            <ion-radio item-left [value]=3></ion-radio>
+                            <ion-label>3. ใช้น้ำมันเบนซิน</ion-label>
+                          </ion-item>
+                        </ion-col>
+                        <ion-col>
+                          <ion-item>
+                            <ion-radio item-left [value]=4></ion-radio>
+                            <ion-label>4. รถไถเดินตาม</ion-label>
+                          </ion-item>
+                        </ion-col>
+                      </ion-row>
+                      <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_4" danger padding-left>กรุณาเลือกแหล่งพลังงานที่ใช้</p>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1 && section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1">
+                    <ion-col col-6>
+                      6) เป็นเครื่องสูบน้ำชนิดใด
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_5.A5_5_3_1[y-1].A5_2_3_4_4" (ionChange)="validatePump5_5(y-1);createChonHorsePower(y-1)"
+                        [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_5" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                        <ion-option *ngFor="let pump of chon_pump_list[y-1]" [value]="pump"> {{pump}}</ion-option>
+                      </ion-select>
+                      <button ion-button color="secondary" (click)="showImg('din',section5_5.A5_5_3_1[y-1].A5_2_3_4_4)">ดูรูปตัวอย่าง</button>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_5" danger padding-left>กรุณาเลือกชนิดเครื่องสูบน้ำ</p>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1 && section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1">
+                    <ion-col col-6>
+                      7) ขนาดแรงม้า / วัตต์ เท่าไร
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-row>
+                        <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_5.A5_5_3_1[y-1].A5_2_3_4_5" (ionChange)="validatePump5_5(y-1);createChonPipeCon(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_6"
+                          placeholder="กรุณาเลือก ขนาดวัตต์ หรือ (แรงม้า)" style="max-width: 100% !important;">
+                          <ion-option *ngFor="let horse of chon_horsepower_list[y-1]" [value]="horse"> {{horse}}</ion-option>
+                        </ion-select>
+                        แรงม้า / วัตต์
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_6" danger padding-left>กรุณากรอกขนาดแรงม้า ให้ถูกต้อง</p>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1 && section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1">
+                    <ion-col col-6>
+                      8) ขนาดท่อดูดเท่าไร
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-row>
+                        <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_5.A5_5_3_1[y-1].A5_2_3_4_6" (ionChange)="validatePump5_5(y-1); createChonPipeSen(y-1)"
+                          [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_7" placeholder="กรุณาเลือก ข้อมูลเป็นเครื่องสูบน้ำชนิดใด" style="max-width: 100% !important;">
+                          <ion-option *ngFor="let pipe of chon_pipe_con_list[y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                        </ion-select>
+                        นิ้ว
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_7" danger padding-left>กรุณากรอกขนาดท่อดูด ให้ถูกต้อง</p>
+                  <ion-row *ngIf="!section5_5.A5_5_3_1[y-1].A5_2_3_4_1_1 && section5_5.A5_5_3_1[y-1].A5_2_3_4_3_1">
+                    <ion-col col-6>
+                      9) ขนาดท่อส่งเท่าไร
+                    </ion-col>
+                    <ion-col col-6>
+                      <ion-row>
+                        <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_5.A5_5_3_1[y-1].A5_2_3_4_7" (ionChange)="validatePump5_5(y-1)" [(ngModel)]="section5_5.A5_5_3_1[y-1].A5_2_3_4_8"
+                          placeholder="กรุณาเลือกขนาดท่อส่ง" style="max-width: 100% !important;">
+                          <ion-option *ngFor="let pipe of chon_pipe_sen_list[y-1]" [value]="pipe"> {{pipe}}</ion-option>
+                        </ion-select>
+                        นิ้ว
+                      </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_3_1[y-1].A5_2_3_4_8" danger padding-left>กรุณากรอกขนาดท่อส่ง ให้ถูกต้อง</p>
+                </ion-grid>
+              </div>
+            </div>
+          </div>
+          <ion-row>
+            <ion-col col-6>
+              5.5.4 ใช้น้ำจากชลประทาน เพื่อทำกิจกรรมใดบ้างคิดเป็นสัดส่วนเท่าไร
+            </ion-col>
+            <ion-col col-6>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 style="text-align:right;">
+              กิจกรรมการใช้น้ำ
+            </ion-col>
+            <ion-col col-6>
+              สัดส่วนที่ใช้ (%)
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G1">
+            <ion-col col-6 style="text-align:right;">
+              1.เพื่ออุปโภคบริโภค
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_4_1"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G_asai">
+            <ion-col col-6 style="text-align:right;">
+              2.เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_4_2"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G_na">
+            <ion-col col-6 style="text-align:right;">
+              3.เพื่อทำนา
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_4_3"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G2">
+            <ion-col col-6 style="text-align:right;">
+              4.เพื่อทำเกษตร
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_4_4"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G3">
+            <ion-col col-6 style="text-align:right;">
+              5.เพื่อผลิตสินค้า
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_4_5"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G4">
+            <ion-col col-6 style="text-align:right;">
+              6.เพื่อการบริการ
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_4_6"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 style="text-align:right;">
+              รวมทุกกิจกรรม
+            </ion-col>
+            <ion-col col-6>
+              <ion-input type="number" [(ngModel)]="section5_5.A5_5_4_7" disabled></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              5.5.5 มีปัญหาคุณภาพน้ำทางกายภาพ หรือไม่ ถ้ามี มีลักษณะต่อไปนี้หรือไม่
+            </ion-col>
+            <ion-col col-6>
+              <ion-row radio-group (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_5_1">
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=false></ion-radio>
+                    <ion-label>1. ไม่มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-radio item-left [value]=true></ion-radio>
+                    <ion-label>2. มีปัญหา</ion-label>
+                  </ion-item>
+                </ion-col>
+                <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_5_1" danger padding-left>กรุณาเลือกตอบ มีปัญหาคุณภาพน้ำทางกายภาพหรือไม่</p>
+                <ion-row *ngIf="section5_5.A5_5_5_1">
+                  <ion-item>
+                    <ion-label>2.1 เค็ม/กร่อย</ion-label>
+                    <ion-checkbox (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_5_2_1"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.2 มีกลิ่น</ion-label>
+                    <ion-checkbox (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_5_2_2"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.3 มีคราบมัน</ion-label>
+                    <ion-checkbox (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_5_2_3"></ion-checkbox>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2.4 ฝ้าขาว</ion-label>
+                    <ion-checkbox (ionChange)="validate5_5()" [(ngModel)]="section5_5.A5_5_5_2_4"></ion-checkbox>
+                  </ion-item>
+                </ion-row>
+                <p id="error2" *ngIf="notValid && !validateSec5_5.A5_5_5_2" danger padding-left>กรุณาเลือกปัญหาคุณภาพน้้าทางกายภาพ</p>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button (click)="save5()">ถัดไป</button>
+      </div>
+    </ion-slide>
+    <ion-slide *ngSwitchCase=6>
+      <div *ngIf="waterData.rainWater">
+        <ion-label style="font-weight: bold">5.6 การกักเก็บน้ำฝน</ion-label>
+        5.6.1 ถ้า “มี” ภาชนะที่จัดเก็บน้ำฝนเป็นประเภทใดบ้าง ขนาดบรรจุเท่าใด และมีจำนวนเท่าไร
+        <ion-grid>
+          <ion-row>
+            <button ion-button (click)="addPachana()">
+              เพิ่มภาชนะที่จัดเก็บน้ำฝน
+            </button>
+            <button *ngIf="section5_6.A5_6_1.length > 0" ion-button color="danger" (click)="removePachana()">
+              ลบภาชนะที่จัดเก็บน้ำฝน
+            </button>
+          </ion-row>
+          <ion-row *ngFor="let y of range(1,section5_6.A5_6_1.length);">
+            <ion-row>
+              <ion-col col-2>
+                <ion-label>
+                  {{y}}.
+                </ion-label>
+              </ion-col>
+              <ion-col col-10>
+                <ion-select interface="action-sheet" cancelText="ยกเลิก" (ionChange)="createPachana(y-1);validate5_6_1(y-1)" [(ngModel)]="section5_6.A5_6_1[y-1].A5_6_1_1" placeholder="กรุณาเลือก ภาชนะที่จัดเก็บ" style="max-width: 100% !important;">
+                  <ion-option value="แท้งค์น้ำ สแตนเลส">แท้งค์น้ำ สแตนเลส</ion-option>
+                  <ion-option value="แท้งค์น้ำ โพลิเมอร์/ พลาสติก">แท้งค์น้ำ โพลิเมอร์/ พลาสติก</ion-option>
+                  <ion-option value="แท้งค์น้ำ ไฟเบอร์กลาส">แท้งค์น้ำ ไฟเบอร์กลาส</ion-option>
+                  <ion-option value="แท้งค์น้ำ ปูน/ซีเมนต์">แท้งค์น้ำ ปูน/ซีเมนต์</ion-option>
+                  <ion-option value="โอ่ง ปูน/ดินเผา">โอ่ง ปูน/ดินเผา</ion-option>
+                  <ion-option value="แท้งค์น้ำ สแตนเลส">แท้งค์น้ำ สแตนเลส</ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <p id="error2" *ngIf="notValid && !validateSec5_6.A5_6_1[y-1].A5_6_1_1" danger padding-left>กรุณาเลือก ภาชนะที่จัดเก็บ</p>
+            </ion-row>
+            <ion-row>
+              <ion-row>
+                <ion-col col-5>
+                  <ion-select interface="action-sheet" cancelText="ยกเลิก" [disabled]="!section5_6.A5_6_1[y-1].A5_6_1_1" (ionChange)="validate5_6_1(y-1)" [(ngModel)]="section5_6.A5_6_1[y-1].A5_6_1_2"
+                    placeholder="กรุณาเลือก ขนาดภาชนะที่จัดเก็บ" style="max-width: 100% !important;">
+                    <ion-option [value]="item" *ngFor="let item of pachana_list[y-1]">{{item}}</ion-option>
+                  </ion-select>
+                </ion-col>
+                <ion-col col-2>
+                  <ion-label>
+                    ลิตร
+                  </ion-label>
+                </ion-col>
+                <ion-col col-2>
+                  <ion-label>
+                    จำนวน
+                  </ion-label>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input type="number" (ionChange)="validate5_6_1(y-1)" [(ngModel)]="section5_6.A5_6_1[y-1].A5_6_1_3" [disabled]="!section5_6.A5_6_1[y-1].A5_6_1_2"></ion-input>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p id="error2" *ngIf="(notValid||section5_6.A5_6_1[y-1].A5_6_1_2) && !validateSec5_6.A5_6_1[y-1].A5_6_1_2" danger padding-left>กรุณาเลือก ขนาดภาชนะที่จัดเก็บ</p>
+                </ion-col>
+                <ion-col>
+                  <p id="error2" *ngIf="(notValid||section5_6.A5_6_1[y-1].A5_6_1_3) && !validateSec5_6.A5_6_1[y-1].A5_6_1_3" danger padding-left>กรุณากรอก จำนวนภาชนะที่จัดเก็บ</p>
+                </ion-col>
+              </ion-row>
+            </ion-row>
+          </ion-row>
+        </ion-grid>
+        5.6.2 น้ำฝนที่กักเก็บไว้นั้นใช้ในกิจกรรมใดบ้าง คิดเป็นสัดส่วนเท่าไร
+        <ion-grid>
+          <ion-row>
+            <ion-col col-8>กิจกรรมการใช้น้ำ</ion-col>
+            <ion-col col-4>สัดส่วนที่ใช้(%)</ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G1">
+            <ion-col col-8>1.ใช้เพื่ออุปโภคบริโภค</ion-col>
+            <ion-col col-4>
+              <ion-input (ionChange)="validate5_6()" [(ngModel)]="section5_6.A5_6_2_1" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G_asai">
+            <ion-col col-8>2.เพื่อรดน้ำพืชในบริเวณที่อยู่อาศัย</ion-col>
+            <ion-col col-4>
+              <ion-input (ionChange)="validate5_6()" [(ngModel)]="section5_6.A5_6_2_2" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G2">
+            <ion-col col-8>3.ใช้เพื่อทำเกษตร</ion-col>
+            <ion-col col-4>
+              <ion-input (ionChange)="validate5_6()" [(ngModel)]="section5_6.A5_6_2_3" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G3">
+            <ion-col col-8>4.เพื่อผลิตสินค้า</ion-col>
+            <ion-col col-4>
+              <ion-input (ionChange)="validate5_6()" [(ngModel)]="section5_6.A5_6_2_4" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="waterData.G4">
+            <ion-col col-8>5.เพื่อการบริการ</ion-col>
+            <ion-col col-4>
+              <ion-input (ionChange)="validate5_6()" [(ngModel)]="section5_6.A5_6_2_5" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>รวมทุกกิจกรรม</ion-col>
+            <ion-col col-4>
+              <ion-input [(ngModel)]="section5_6.A5_6_2_6" type="number" disabled></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8></ion-col>
+            <ion-col col-4>
+              <p id="error2" *ngIf="notValid && !validateSec5_6.A5_6_2" danger padding-left>กรุณากรอกสัดส่วนการใช้น้ำ ให้ถูกต้อง</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button (click)="save6()">ถัดไป</button>
+      </div>
+    </ion-slide>
+    <ion-slide *ngSwitchCase=7>
+      <div *ngIf="waterData.buyWater">
+        <ion-label style="font-weight: bold">5.7 น้ำที่ซื้อมาใช้</ion-label>
+        <ion-label>5.7.1 น้ำที่ซื้อมาใช้บรรจุภัณฑ์ชนิดใดบ้าง มีขนาดบรรจุเท่าใด</ion-label>
+        <ion-label>และโดยเฉลี่ยต่อเดือนแล้วซื้อมาเพื่อใช้ในแต่ละกิจกรรมเป็นจำนวนเท่าไร</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+              ชนิดของบรรจุภัณฑ์
+            </ion-col>
+            <ion-col col-4>
+              ขนาดของภาชนะ
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col style="text-align:center">จำนวนที่ซื้อต่อเดือน</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-3>เพื่ออุปโภคบริโภค</ion-col>
+                <ion-col col-3>เพื่อทำการเกษตร</ion-col>
+                <ion-col col-3>เพื่อผลิตสินค้า</ion-col>
+                <ion-col col-3>เพื่อการบริการ</ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>
+              1.ขวด
+            </ion-col>
+            <ion-col col-4>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_1_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-label text-wrap style="font-size: 0.8em">มิลลิลิตร</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_1_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_1_3" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_1_4" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_1_5" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-4>
+              <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_1_1) && !validateSec5_7.A5_7_1_1_1" danger padding-left>กรุณากรอกขนาดภาชนะ ให้ถูกต้อง</p>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_1_2 )&& !validateSec5_7.A5_7_1_1_2" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่ออุปโภคบริโภค ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_1_3) && !validateSec5_7.A5_7_1_1_3" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อทำการเกษตร ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_1_4) && !validateSec5_7.A5_7_1_1_4" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อผลิตสินค้า ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_1_5) && !validateSec5_7.A5_7_1_1_5" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อการบริการ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>
+              2. ถัง
+            </ion-col>
+            <ion-col col-4>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_2_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>ลิตร</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_2_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_2_3" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_2_4" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_2_5" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-4>
+              <p id="error2" *ngIf="(notValid ||section5_7.A5_7_1_2_1) && !validateSec5_7.A5_7_1_2_1" danger padding-left>กรุณากรอกขนาดภาชนะ ให้ถูกต้อง</p>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_2_2) && !validateSec5_7.A5_7_1_2_2" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่ออุปโภคบริโภค ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_2_3) && !validateSec5_7.A5_7_1_2_3" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อทำการเกษตร ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_2_4)&& !validateSec5_7.A5_7_1_2_4" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อผลิตสินค้า ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_2_5) && !validateSec5_7.A5_7_1_2_5" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อการบริการ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>
+              3. แทงค์
+            </ion-col>
+            <ion-col col-4>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_3_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>ลิตร</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_3_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_3_3" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_3_4" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_3_5" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-4>
+              <p id="error2" *ngIf="(notValid ||section5_7.A5_7_1_3_1) && !validateSec5_7.A5_7_1_3_1" danger padding-left>กรุณากรอกขนาดภาชนะ ให้ถูกต้อง</p>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_3_2) && !validateSec5_7.A5_7_1_3_2" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่ออุปโภคบริโภค ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_3_3) && !validateSec5_7.A5_7_1_3_3" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อทำการเกษตร ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_3_4) && !validateSec5_7.A5_7_1_3_4" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อผลิตสินค้า ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_3_5) && !validateSec5_7.A5_7_1_3_5" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อการบริการ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>
+              4. รถ
+            </ion-col>
+            <ion-col col-4>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_4_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>ลิตร</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_4_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_4_3" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_4_4" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_4_5" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-4>
+              <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_4_1) && !validateSec5_7.A5_7_1_4_1" danger padding-left>กรุณากรอกขนาดภาชนะ ให้ถูกต้อง</p>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_4_2) && !validateSec5_7.A5_7_1_4_2" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่ออุปโภคบริโภค ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_4_3) && !validateSec5_7.A5_7_1_4_3" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อทำการเกษตร ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_4_4) && !validateSec5_7.A5_7_1_4_4" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อผลิตสินค้า ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid || section5_7.A5_7_1_4_5) && !validateSec5_7.A5_7_1_4_5" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อการบริการ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>
+              <ion-row>5.
+                <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_5"></ion-input>
+              </ion-row>
+            </ion-col>
+            <ion-col col-4>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_5_1" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>ลิตร</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_5_2" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_5_3" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_5_4" type="number"></ion-input>
+                </ion-col>
+                <ion-col col-3>
+                  <ion-input (ionChange)="validate5_7()" [(ngModel)]="section5_7.A5_7_1_5_5" type="number"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>
+              <p id="error2" *ngIf="notValid && !validateSec5_7.A5_7_1_5" danger padding-left>กรุณากรอกชนิดของบรรจุภัณฑ์ ให้ถูกต้อง</p>
+            </ion-col>
+            <ion-col col-3>
+              <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_5_1) && !validateSec5_7.A5_7_1_5_1" danger padding-left>กรุณากรอกขนาดภาชนะ ให้ถูกต้อง</p>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_5_2) && !validateSec5_7.A5_7_1_5_2" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่ออุปโภคบริโภค ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_5_3) && !validateSec5_7.A5_7_1_5_3" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อทำการเกษตร ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_5_4) && !validateSec5_7.A5_7_1_5_4" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อผลิตสินค้า ให้ถูกต้อง</p>
+                </ion-col>
+                <ion-col col-3>
+                  <p id="error2" *ngIf="(notValid||section5_7.A5_7_1_5_5) && !validateSec5_7.A5_7_1_5_5" danger padding-left>กรุณากรอกจำนวนที่ซื้อต่อเดือนเพื่อการบริการ ให้ถูกต้อง</p>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <p id="error2" *ngIf="notValid && !validateSec5_7.A5_7_1" danger padding-left>กรุณากรอกข้อมูล น้ำที่ซื้อมาใช้บรรจุภัณฑ์ชนิดใดบ้าง มีขนาดบรรจุเท่าใด</p>
+        </ion-grid>
+        <button ion-button (click)="save7()">ถัดไป</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <!-- <button ion-button (click)="save()">ถัดไป</button> -->
+</ion-list>

@@ -1,0 +1,25 @@
+
+<h1 class="text-center">เปิดใช้งาน Tablet</h1>
+<hr id="hr-line">
+
+<div id="container">
+  <ion-list>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <ion-item class="clerk-font"> 
+        <ion-label  stacked primary class="clerk-font">รหัสพนักงาน</ion-label>
+        <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text" id="name" placeholder="รหัสพนักงาน">
+        </ion-input>
+      </ion-item>
+      <p id="error" *ngIf="!valiadUsername" danger padding-left>กรุณากรอกข้อมูลรหัสพนักงาน</p>
+      <ion-item>
+        <ion-label stacked primary>รหัสผ่าน</ion-label>
+        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="password" placeholder="รหัสผ่าน">
+        </ion-input>
+      </ion-item>
+      <p id="error" *ngIf="!valiadPassword" danger padding-left>กรุณากรอกข้อมูล รหัสผ่าน</p>
+
+      <button ion-button padding-left id="loginButton" type="submit" inline-block color="primary">ตกลง</button>
+    </form>
+    <button ion-button padding-left (click)="goBack()" id="loginButton" class="btn btn-default" color="light">ย้อนกลับ</button>
+  </ion-list>
+</div>

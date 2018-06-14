@@ -1,0 +1,22 @@
+form2section5 {
+    .grid{
+        border: solid #555;
+        text-align: left;
+    }
+    #error2{
+        color: red;
+       font-size: 0.8em;
+    }
+    p {
+        font-size: 0.8em;
+        
+    }
+
+    .small-label{
+        font-size: 0.8em;
+    }
+    ion-input, ion-select, ion-textarea {
+        background-color: #f2f2f2;
+        padding: 5px 10px;
+    }
+}

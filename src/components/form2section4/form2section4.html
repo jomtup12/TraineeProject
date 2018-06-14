@@ -1,0 +1,547 @@
+<!-- Generated template for the Form2Section4Component component -->
+<ion-title>
+  ตอนที่ 4 การค้าและการบริการ
+</ion-title>
+<hr id="hr-line">
+
+<ion-list no-lines id="container">
+
+  <form [formGroup]="Form2Section4">
+
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">4.1</label> ชื่อสถานประกอบการ/หน่วยงาน</ion-label>
+      <ion-input [(ngModel)]="section4.A4_1" formControlName="A4_1" type="text" placeholder="่ชื่อสถานประกอบการ/หน่วยงาน" (ionChange)="validate()"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section4.controls.A4_1.valid &&  section4.A4_1)||(!section4.A4_1 &&  notValid)" danger padding-left>กรุณากรอกข้อมูล ชื่อสถานประกอบการ/หน่วยงาน</p>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">
+            <label id="bold">4.2</label> โทรศัพท์</ion-label>
+          <ion-input [(ngModel)]="section4.A4_2_1" formControlName="A4_2_1" type="text" placeholder="โทรศัพท์" (ionChange)="validate()"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section4.controls.A4_2_1.valid &&  section4.A4_2_1)" danger padding-left>กรุณากรอกข้อมูล โทรศัพท์</p>
+        <p id="error2" *ngIf="(!section4.A4_2_1 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">โทรสาร
+          </ion-label>
+          <ion-input [(ngModel)]="section4.A4_2_2" formControlName="A4_2_2" type="text" placeholder="โทรสาร" (ionChange)="validate()"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section4.controls.A4_2_2.valid &&  section4.A4_2_2)" danger padding-left>กรุณากรอกข้อมูล โทรสาร</p>
+        <p id="error2" *ngIf="(!section4.A4_2_2 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">E-mail</ion-label>
+          <ion-input [(ngModel)]="section4.A4_2_3" formControlName="A4_2_3" type="email" placeholder="E-mail" (ionChange)="validate()"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section4.controls.A4_2_3.valid &&  section4.A4_2_3)" danger padding-left>กรุณากรอกข้อมูล E-mail</p>
+        <p id="error2" *ngIf="(!section4.A4_2_3 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked id="fontsize">Website</ion-label>
+          <ion-input [(ngModel)]="section4.A4_2_4" formControlName="A4_2_4" type="text" placeholder="Website" (ionChange)="validate()"></ion-input>
+        </ion-item>
+        <p id="error2" *ngIf="(!Form2Section4.controls.A4_2_4.valid &&  section4.A4_2_4)" danger padding-left>กรุณากรอกข้อมูล Website</p>
+        <p id="error2" *ngIf="(!section4.A4_2_4 &&  notValid)" danger padding-left>ถ้าไม่ทราบให้ใส่ "-"</p>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">4.3</label> ชื่อผู้ให้ข้อมูล
+      </ion-label>
+      <!-- <ion-input [(ngModel)]="section4.A4_3_1" formControlName="A4_3_1" type="text" placeholder="ชื่อผู้ให้ข้อมูล" (ionChange)="validate()"></ion-input> -->
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          
+          <ion-select [(ngModel)]="titleName"  formControlName="T" (ionChange)="nameInput()" placeholder="คำนำหน้า" style="max-width: 100% !important;" interface="action-sheet" cancelText="ยกเลิก">
+            <ion-option value="นาย">นาย</ion-option>
+            <ion-option value="นาง">นาง</ion-option>
+            <ion-option value="นางสาว">นางสาว</ion-option>
+          </ion-select>
+          
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-input [(ngModel)]="FirstName" formControlName="F" (ionChange)="nameInput()" type="text" placeholder="ชื่อ"></ion-input></ion-item>
+        </ion-col>
+        <ion-col col-4>
+            <ion-item><ion-input [(ngModel)]="LastName" formControlName="L" (ionChange)="nameInput()" type="text" placeholder="นามสกุล"></ion-input></ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p id="error2" *ngIf="(!Form2Section4.controls.A4_3_1.valid && section4.A4_3_1)||(!FirstName && notValid)||(!LastName && notValid)||(!titleName && notValid)" danger padding-left>กรุณากรอกข้อมูล ชื่อหัวหน้าครัวเรือน ให้ถูกต้อง </p>
+    <ion-item>
+      <ion-label stacked id="fontsize">ตำแหน่ง</ion-label>
+      <ion-input [(ngModel)]="section4.A4_3_2" formControlName="A4_3_2" type="text" placeholder="ตำแหน่ง" (ionChange)="validate()"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section4.controls.A4_3_2.valid && section4.A4_3_2)||(!section4.A4_3_2 && notValid)" danger padding-left>กรุณากรอกข้อมูล ตำแหน่ง</p>
+    <ion-item>
+      <ion-label stacked id="fontsize" text-wrap>
+        <label id="bold">4.4</label>สถานประกอบการแห่งนี้ให้บริการในลักษณะใด (ระบุบริการหลักที่ทำ)</ion-label>
+      <ion-input [(ngModel)]="section4.A4_4" formControlName="A4_4" type="text" placeholder="สถานประกอบการแห่งนี้ให้บริการในลักษณะใด"
+        (ionChange)="validate()"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="(!Form2Section4.controls.A4_4.valid && section4.A4_4)||(!section4.A4_4 && notValid)" danger padding-left>กรุณากรอกข้อมูล สถานประกอบการแห่งนี้ให้บริการในลักษณะใด</p>
+    <ion-row>
+        <ion-col col-4>
+          <ion-item>
+            <ion-label text-wrap stacked id="fontsize">
+                <label id="bold">4.5</label> ประเภทสถานประกอบการบริการ
+              </ion-label></ion-item>
+        </ion-col>
+        <ion-col>
+            <ion-row>
+                <ion-col col-3>
+                    <ion-label>
+                        {{section4.A4_5}}
+                    </ion-label>  
+                </ion-col>
+                <ion-col col-9>
+                  <ion-select [(ngModel)]="selected_ser" (ionChange)="selectSerChange()" formControlName="A4_5" placeholder="กรุณาเลือก"  style="max-width: 100% !important;" interface="action-sheet" cancelText="ยกเลิก">
+                    <ion-option [value]="new_data[item]" *ngFor="let item of range(0,new_data.length-1)">{{ new_data[item] }}</ion-option>
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+        </ion-col>
+      </ion-row>
+      <p id="error2" *ngIf="!section4.A4_5 && notValid" danger padding-left>กรุณากรอกข้อมูล ประเภทสถานประกอบการบริการ</p>
+    <ion-list *ngIf="section4.A4_5 == 'S36'">
+      <ion-item>
+        <ion-label class="head2" stacked id="fontsize">
+          <label id="bold">4.6</label> สถานศึกษา/โรงเรียน/สถาบันการศึกษา</ion-label>
+      </ion-item>
+      <ion-grid id="border-table">
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>1) โรงเรียน/สถาบันการศึกษาแห่งนี้เปิดสอนนักเรียนนักเรียน/นักศึกษา ระดับใดบ้าง</ion-label>
+            <ion-label text-wrap>2) มีจำนวนนักเรียน/นักศึกษากี่คน</ion-label>
+          </ion-col>
+          <ion-col col-8>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item id="smallItem">
+                    <ion-label>1. ก่อนวัยเรียน</ion-label>
+                    <ion-checkbox style="margin: 2px; padding:10px;" [(ngModel)]="section4.A4_6_1_1_1" formControlName="A4_6_1_1_1" (ionChange)="validate()"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_2_1" formControlName="A4_6_1_2_1" type="number" (ionChange)="validate()"></ion-input>
+                      </ion-col>
+
+                      <ion-col col-3>
+                        <ion-label>คน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && validator.A4_6_1_2_1 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนนักเรียนก่อนวัยเรียนให้ถูกต้อง</p>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item id="smallItem">
+                    <ion-label>2. อนุบาล</ion-label>
+                    <ion-checkbox style="margin: 2px; padding:10px;" (ionChange)="validate()" [(ngModel)]="section4.A4_6_1_1_2" formControlName="A4_6_1_1_2"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_2_2" (ionChange)="validate()" formControlName="A4_6_1_2_2"
+                          type="number"></ion-input>
+                      </ion-col>
+
+                      <ion-col col-3>
+                        <ion-label>คน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && validator.A4_6_1_2_2 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนนักเรียนอนุบาลให้ถูกต้อง</p>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item id="smallItem">
+                    <ion-label>3. ประถมศึกษา</ion-label>
+                    <ion-checkbox style="margin: 2px; padding:10px;" [(ngModel)]="section4.A4_6_1_1_3" formControlName="A4_6_1_1_3" (ionChange)="validate()"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_2_3" formControlName="A4_6_1_2_3" type="number" (ionChange)="validate()"></ion-input>
+                      </ion-col>
+
+                      <ion-col col-3>
+                        <ion-label>คน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && validator.A4_6_1_2_3 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนนักเรียนประถมศึกษาให้ถูกต้อง</p>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item id="smallItem">
+                    <ion-label>4. มัธยมศึกษา</ion-label>
+                    <ion-checkbox style="margin: 2px; padding:10px;" [(ngModel)]="section4.A4_6_1_1_4" formControlName="A4_6_1_1_4" (ionChange)="validate()"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_2_4" formControlName="A4_6_1_2_4" type="number" (ionChange)="validate()"></ion-input>
+                      </ion-col>
+
+                      <ion-col col-3>
+                        <ion-label>คน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && validator.A4_6_1_2_4 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนนักเรียนมัธยมศึกษาให้ถูกต้อง</p>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item id="smallItem">
+                    <ion-label>5. ปวช./ปวส.</ion-label>
+                    <ion-checkbox style="margin: 2px; padding:10px;" [(ngModel)]="section4.A4_6_1_1_5" formControlName="A4_6_1_1_5" (ionChange)="validate()"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_2_5" formControlName="A4_6_1_2_5" type="number" (ionChange)="validate()"></ion-input>
+                      </ion-col>
+
+                      <ion-col col-3>
+                        <ion-label>คน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && validator.A4_6_1_2_5 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนนักเรียน ปวช./ปวส. ให้ถูกต้อง</p>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-item id="smallItem">
+                    <ion-label>6. อุดมศึกษา</ion-label>
+                    <ion-checkbox style="margin: 2px; padding:10px;" [(ngModel)]="section4.A4_6_1_1_6" formControlName="A4_6_1_1_6" (ionChange)="validate()"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_2_6" formControlName="A4_6_1_2_6" type="number" (ionChange)="validate()"></ion-input>
+                      </ion-col>
+
+                      <ion-col col-3>
+                        <ion-label>คน</ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-col>
+              </ion-row>
+              <p id="error2" *ngIf="notValid && validator.A4_6_1_2_6 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนนักเรียนอนุบาลให้ถูกต้อง</p>
+            </ion-grid>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-8>
+            <ion-label text-wrap>3) มีจำนวนบุคลากรรวมทั้งหมดทุกประเภทกี่คน (รวมครู นักวิชาการ, พนักงาน, ภารโรง, ฯลฯ)</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_1_3" formControlName="A4_6_1_3" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>คน</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_1_3 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนบุคลากรให้ถูกต้อง</p>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="section4.A4_5 == 'S12'">
+      <ion-item>
+        <ion-label class="head2" stacked id="fontsize">
+          <label id="bold">4.6</label> โรงแรม/รีสอร์ท/เกสต์เฮาส์</ion-label>
+      </ion-item>
+      <ion-grid id="border-table">
+        <ion-row>
+          <ion-col>
+            <ion-label>1) มีจำนวนห้องพักรวมทั้งหมดกี่ห้อง</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_2_1" formControlName="A4_6_2_1" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>ห้อง</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_2_1 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนห้องพักให้ถูกต้อง</p>
+        <ion-row>
+          <ion-col>
+            <ion-label>2) มีจำนวนบุคลากรรวมทั้งหมดทุกประเภทกี่คน</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_2_2" formControlName="A4_6_2_2" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>คน</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_2_2 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนบุคลากรให้ถูกต้อง</p>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="section4.A4_5 == 'S37'">
+      <ion-item>
+        <ion-label class="head2" stacked id="fontsize">
+          <label id="bold">4.6</label> สถานพยาบาล/โรงพยาบาล/สถานสงเคราะห์</ion-label>
+      </ion-item>
+      <ion-grid id="border-table">
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>1) มีจำนวนเตียงพักค้างคืน(ผู้ป่วยใน) รวมทั้งหมดเท่าไร
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_3_1" formControlName="A4_6_3_1" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>เตียง</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_3_1 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนเตียงพักค้างคืนให้ถูกต้อง</p>
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>2) มีจำนวนบุคลากรรวมทั้งหมดทุกประเภทกี่คน (หมอ, พยาบาล, ผู้ช่วยพยาบาล, เจ้าหน้าที่, ฯลฯ) </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_3_2" formControlName="A4_6_3_2" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>คน</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid &&  validator.A4_6_3_2 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนบุคลากรให้ถูกต้อง</p>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="section4.A4_5 == 'S38'">
+      <ion-item>
+        <ion-label class="head2" stacked id="fontsize">
+          <label id="bold">4.6</label> คอนโด/อพาร์ทเม้นต์/หอพัก/แมนชั่น/แฟลต</ion-label>
+      </ion-item>
+      <ion-grid id="border-table">
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>1) จำนวนห้องรวมทั้งหมดมีกี่ห้อง
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_4_1" formControlName="A4_6_4_1" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>ห้อง</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_4_1 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนห้องให้ถูกต้อง</p>
+        <p id="warning" *ngIf=" section4.A4_6_4_1>=1000 && section4.A4_6_4_1<=9999 " danger padding-left>กรุณาตรวจสอบจำนวนห้องมีจำนวนที่เยอะผิดปกติหรือไม่</p>
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>2) จำนวนห้องที่มีผู้อยู่อาศัยอยู่มีกี่ห้อง (ณ วันที่สำรวจ) </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_4_2" formControlName="A4_6_4_2" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>ห้อง</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_4_2 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนห้องที่มีผู้อยู่อาศัยให้ถูกต้อง</p>
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>3) มีจำนวนบุคลากรรวมทั้งหมดทุกประเภทกี่คน (ผู้จัดการ, แม่บ้าน, คนสวน, รปภ., ฯลฯ)</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_4_3" formControlName="A4_6_4_3" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>คน</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_4_3 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนบุคลากรให้ถูกต้อง</p>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="section4.A4_5 == 'S47'">
+      <ion-item>
+        <ion-label class="head2" stacked id="fontsize">
+          <label id="bold">4.6</label> ศาสนสถาน/วัด/สำนักสงฆ์/สำนักปฏิบัติธรรม</ion-label>
+      </ion-item>
+      <ion-grid id="border-table">
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>1) มีจำนวนผู้มาประกอบศาสนกิจ ผู้ปฏิบัติธรรม โดยเฉลี่ยต่อเดือนกี่คน
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_5_1" formControlName="A4_6_5_1" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>คน</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_5_1 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนสมาชิกให้ถูกต้อง</p>
+      </ion-grid>
+    </ion-list>
+    <ion-list *ngIf="section4.A4_5 != 'S12' && section4.A4_5 != 'S36' && section4.A4_5 != 'S37' && section4.A4_5 != 'S38' && section4.A4_5 != 'S47' ">
+      <ion-item>
+        <ion-label class="head2" stacked id="fontsize">
+          <label id="bold">4.6</label> สถานประกอบการบริการประเภทอื่น ๆ</ion-label>
+      </ion-item>
+      <ion-grid id="border-table">
+        <ion-row>
+          <ion-col>
+            <ion-label text-wrap>1) มีจำนวนบุคลากร/คนทำงานรวมทั้งหมดทุกประเภทกี่คน
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-9>
+                  <ion-input id="smallInput" no-padding [(ngModel)]="section4.A4_6_6_1" formControlName="A4_6_6_1" type="number" (ionChange)="validate()"></ion-input>
+                </ion-col>
+
+                <ion-col col-3>
+                  <ion-label>คน</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+        <p id="error2" *ngIf="notValid && validator.A4_6_6_1 == false" danger padding-left>กรุณากรอกข้อมูล จำนวนบุคลากรให้ถูกต้อง</p>
+      </ion-grid>
+    </ion-list>
+    <ion-item>
+      <ion-label stacked id="fontsize">
+        <label id="bold">4.7</label> สถานประกอบการแห่งนี้ใช้น้้าจากแหล่งใดบ้าง</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>1. น้ำประปา</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_1" formControlName="A4_7_1" (ionChange)="tapWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>2. น้ำบาดาล</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_2" formControlName="A4_7_2" (ionChange)="groundWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>3. น้ำจากสระน้ำ</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_3" formControlName="A4_7_3" (ionChange)="poolWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>4. น้ำจากแม่น้ำ/ลำคอง/แหล่งน้ำสาธารณะ</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_4" formControlName="A4_7_4" (ionChange)="riverWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>5. น้ำจากชลประทาน</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_5" formControlName="A4_7_5" (ionChange)="chonWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>6. น้ำฝนที่กักเก็บไว้</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_6" formControlName="A4_7_6" (ionChange)="rainWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>7. น้ำที่ซื้อมาใช้</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_7" formControlName="A4_7_7" (ionChange)="buyWaterChange()"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>8. อื่นๆ</ion-label>
+      <ion-checkbox [(ngModel)]="section4.A4_7_8" formControlName="A4_7_8"></ion-checkbox>
+    </ion-item>
+    <ion-item *ngIf="section4.A4_7_8">
+      <ion-label stacked>โปรดระบุ</ion-label>
+      <ion-input [(ngModel)]="section4.A4_7_8_1" formControlName="A4_7_8_1"></ion-input>
+    </ion-item>
+    <p id="error2" *ngIf="notValid && validator.A4_7_8_1 == false" danger padding-left>กรุณาเลือกอย่างน้อย 1 อย่าง หรือ ถ้าเลือกอื่นๆ โปรดระบุรายละเอียดด้วย</p>
+    <button ion-button (click)="save()">ถัดไป</button>
+  </form>
+</ion-list>

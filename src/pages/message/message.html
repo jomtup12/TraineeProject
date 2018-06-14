@@ -1,0 +1,27 @@
+<!--
+  Generated template for the MessagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>ข้อความ</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="close()">ตกลง</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-label style="font-size:1.5em">อาคารลำดับที่ {{sn.A1}}</ion-label>
+  <hr id="hr-line">
+  <ion-label style="font-size:1.3em;font-style: oblique;font-weight: lighter;" *ngIf="messages && messages.length==0">ไม่มีข้อความจากระบบ</ion-label>
+  <ion-list *ngFor="let msg of messages">
+    <ion-label *ngIf="msg.H4">ครัวเรือนหมายเลขห้อง {{msg.H4}}</ion-label>
+    <ion-item>
+      <ion-label>{{msg.message}}</ion-label>
+      <ion-label>{{msg.date}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
