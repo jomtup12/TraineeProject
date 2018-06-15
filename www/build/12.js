@@ -1,6 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 704:
+/***/ 705:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(792);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginPageModule = (function () {
 
 /***/ }),
 
-/***/ 788:
+/***/ 792:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -175,7 +175,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'login',template:/*ion-inline-start:"/Users/pomgade/Desktop/NSOWaterMGTSystem21/src/pages/login/login.html"*/'\n<h1 class="text-center">เปิดใช้งาน Tablet</h1>\n<hr id="hr-line">\n\n<div id="container">\n  <ion-list>\n    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">\n      <ion-item class="clerk-font"> \n        <ion-label  stacked primary class="clerk-font">รหัสพนักงาน</ion-label>\n        <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text" id="name" placeholder="รหัสพนักงาน">\n        </ion-input>\n      </ion-item>\n      <p id="error" *ngIf="!valiadUsername" danger padding-left>กรุณากรอกข้อมูลรหัสพนักงาน</p>\n      <ion-item>\n        <ion-label stacked primary>รหัสผ่าน</ion-label>\n        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="password" placeholder="รหัสผ่าน">\n        </ion-input>\n      </ion-item>\n      <p id="error" *ngIf="!valiadPassword" danger padding-left>กรุณากรอกข้อมูล รหัสผ่าน</p>\n\n      <button ion-button padding-left id="loginButton" type="submit" inline-block color="primary">ตกลง</button>\n    </form>\n    <button ion-button padding-left (click)="goBack()" id="loginButton" class="btn btn-default" color="light">ย้อนกลับ</button>\n  </ion-list>\n</div>\n'/*ion-inline-end:"/Users/pomgade/Desktop/NSOWaterMGTSystem21/src/pages/login/login.html"*/
+            selector: 'login',template:/*ion-inline-start:"D:\New folder\TraineeProject\src\pages\login\login.html"*/'\n\n<h1 class="text-center">เปิดใช้งาน Tablet</h1>\n\n<hr id="hr-line">\n\n\n\n<div id="container">\n\n  <ion-list>\n\n    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">\n\n      <ion-item class="clerk-font"> \n\n        <ion-label  stacked primary class="clerk-font">รหัสพนักงาน</ion-label>\n\n        <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text" id="name" placeholder="รหัสพนักงาน">\n\n        </ion-input>\n\n      </ion-item>\n\n      <p id="error" *ngIf="!valiadUsername" danger padding-left>กรุณากรอกข้อมูลรหัสพนักงาน</p>\n\n      <ion-item>\n\n        <ion-label stacked primary>รหัสผ่าน</ion-label>\n\n        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="password" placeholder="รหัสผ่าน">\n\n        </ion-input>\n\n      </ion-item>\n\n      <p id="error" *ngIf="!valiadPassword" danger padding-left>กรุณากรอกข้อมูล รหัสผ่าน</p>\n\n\n\n      <button ion-button padding-left id="loginButton" type="submit" inline-block color="primary">ตกลง</button>\n\n    </form>\n\n    <button ion-button padding-left (click)="goBack()" id="loginButton" class="btn btn-default" color="light">ย้อนกลับ</button>\n\n  </ion-list>\n\n</div>\n\n'/*ion-inline-end:"D:\New folder\TraineeProject\src\pages\login\login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["p" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]])
     ], LoginPage);

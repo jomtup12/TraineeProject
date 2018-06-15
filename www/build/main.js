@@ -37,7 +37,7 @@ var PreloginPage = (function () {
     };
     PreloginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-prelogin',template:/*ion-inline-start:"/Users/pomgade/Desktop/NSOWaterMGTSystem21/src/pages/prelogin/prelogin.html"*/'<div class="container-center">\n  <h1 class="title text-center">ระบบการจัดเก็บข้อมูลในครัวเรือน ครัวเรือนเกษตร</h1>\n  <h1 class="title text-center" >สถานประกอบการ และพื้นที่ย่อย</h1>\n  <br /><br />\n  <div class="container text-center">\n      <button  ion-button  class="btn button-full-size btn-lg btn-success" (click)="navigate(\'scanqr\')" round>เปิดใช้งาน Tablet</button><br />\n      <button ion-button  color="light" class="btn button-full-size btn-lg btn-default" (click)="navigate(\'login\')" round>เข้าสู่ระบบ</button>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/pomgade/Desktop/NSOWaterMGTSystem21/src/pages/prelogin/prelogin.html"*/,
+            selector: 'page-prelogin',template:/*ion-inline-start:"D:\New folder\TraineeProject\src\pages\prelogin\prelogin.html"*/'<div class="container-center">\n\n  <h1 class="title text-center">ระบบการจัดเก็บข้อมูลในครัวเรือน ครัวเรือนเกษตร</h1>\n\n  <h1 class="title text-center" >สถานประกอบการ และพื้นที่ย่อย</h1>\n\n  <br /><br />\n\n  <div class="container text-center">\n\n      <button  ion-button  class="btn button-full-size btn-lg btn-success" (click)="navigate(\'scanqr\')" round>เปิดใช้งาน Tablet</button><br />\n\n      <button ion-button  color="light" class="btn button-full-size btn-lg btn-default" (click)="navigate(\'login\')" round>เข้าสู่ระบบ</button>\n\n  </div>\n\n</div>\n\n'/*ion-inline-end:"D:\New folder\TraineeProject\src\pages\prelogin\prelogin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
     ], PreloginPage);
@@ -70,11 +70,11 @@ webpackEmptyAsyncContext.id = 169;
 
 var map = {
 	"../pages/collectionform/collectionform.module": [
-		698,
+		697,
 		1
 	],
 	"../pages/confirmuser/confirmuser.module": [
-		697,
+		698,
 		16
 	],
 	"../pages/converter/converter.module": [
@@ -98,15 +98,15 @@ var map = {
 		0
 	],
 	"../pages/home/home.module": [
-		706,
+		704,
 		3
 	],
 	"../pages/login/login.module": [
-		704,
+		705,
 		12
 	],
 	"../pages/map/map.module": [
-		705,
+		706,
 		4
 	],
 	"../pages/menu/menu.module": [
@@ -118,11 +118,11 @@ var map = {
 		6
 	],
 	"../pages/prelogin/prelogin.module": [
-		710,
+		709,
 		17
 	],
 	"../pages/pump-water-img/pump-water-img.module": [
-		709,
+		710,
 		10
 	],
 	"../pages/scanqr/scanqr.module": [
@@ -322,20 +322,20 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_11__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["n" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/confirmuser/confirmuser.module#ConfirmuserPageModule', name: 'confirmuser', segment: 'confirmuser', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/collectionform/collectionform.module#CollectionformPageModule', name: 'collectionform', segment: 'collectionform', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/confirmuser/confirmuser.module#ConfirmuserPageModule', name: 'confirmuser', segment: 'confirmuser', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/converter/converter.module#ConverterPageModule', name: 'converter', segment: 'converter', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/createpassword/createpassword.module#CreatepasswordPageModule', name: 'createpassword', segment: 'createpassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/download/download.module#DownloadPageModule', name: 'download', segment: 'download', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/form2-2/form2-2.module#Form2_2PageModule', name: 'form2-2', segment: 'form2-2', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/form2section/form2section.module#Form2sectionPageModule', name: 'form2section', segment: 'form2section', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'login', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/map/map.module#MapPageModule', name: 'map', segment: 'map', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'menu', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/message/message.module#MessagePageModule', name: 'MessagePage', segment: 'message', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pump-water-img/pump-water-img.module#PumpWaterImgPageModule', name: 'pumpWaterImgPage', segment: 'pump-water-img', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/prelogin/prelogin.module#PreloginPageModule', name: 'PreloginPage', segment: 'prelogin', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pump-water-img/pump-water-img.module#PumpWaterImgPageModule', name: 'pumpWaterImgPage', segment: 'pump-water-img', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/scanqr/scanqr.module#ScanqrPageModule', name: 'scanqr', segment: 'scanqr', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search-dropdown/search-dropdown.module#SearchDropdownPageModule', name: 'SearchDropdownPage', segment: 'search-dropdown', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/selectea/selectea.module#SelecteaPageModule', name: 'selectea', segment: 'selectea', priority: 'low', defaultHistory: [] },
@@ -461,7 +461,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/pomgade/Desktop/NSOWaterMGTSystem21/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/pomgade/Desktop/NSOWaterMGTSystem21/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\New folder\TraineeProject\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"D:\New folder\TraineeProject\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], MyApp);
